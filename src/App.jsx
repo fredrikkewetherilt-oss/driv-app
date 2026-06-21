@@ -33,7 +33,7 @@ const SESSIONS = {
     ],
   },
   A: {
-    kind: 'Ballkontroll', title: 'Ballkontroll og føring', dur: '25–30 min', icon: '⚽', tint: '#eee8fd',
+    kind: 'Ballkontroll', title: 'Ballkontroll og føring', dur: '25–30 min', icon: '⚽', tint: 'var(--driv-blue-tint)',
     steps: [
       { type: 'timer',     name: 'Triksing og fri lek',      detail: 'Bli venn med ballen',       seconds: 300, bullets: ['Hold ballen i lufta', 'Prøv begge føtter'] },
       { type: 'timer',     name: 'Føring med begge bein',    detail: 'Rolig og kontrollert',       seconds: 600, bullets: ['Innside', 'Utside', 'Såle'], videos: [{ label: 'Føring: innside, utside, såle', embed: 'J6U-YClb6AM' }] },
@@ -42,7 +42,7 @@ const SESSIONS = {
     ],
   },
   B: {
-    kind: 'Pasning', title: 'Pasning og mottak', dur: '25–30 min', icon: '⚽', tint: '#eee8fd',
+    kind: 'Pasning', title: 'Pasning og mottak', dur: '25–30 min', icon: '⚽', tint: 'var(--driv-blue-tint)',
     steps: [
       { type: 'timer', name: 'Oppvarming med ball',              detail: 'Korte, lette pasninger', seconds: 180, bullets: ['Lette touch', 'Begge føtter'] },
       { type: 'do',    name: '50 pasninger – høyre fot',         detail: 'Mot vegg eller med partner', bullets: ['Treff samme punkt', 'Rolig og presist'] },
@@ -53,7 +53,7 @@ const SESSIONS = {
     ],
   },
   C: {
-    kind: 'Avslutninger', title: 'Avslutninger og hurtighet', dur: '25–30 min', icon: '⚽', tint: '#eee8fd',
+    kind: 'Avslutninger', title: 'Avslutninger og hurtighet', dur: '25–30 min', icon: '⚽', tint: 'var(--driv-blue-tint)',
     steps: [
       { type: 'timer',     name: 'Oppvarming med ball', detail: 'Få opp tempoet',         seconds: 300, bullets: ['Lett føring', 'Noen lette pasninger'] },
       { type: 'do',        name: 'Sprintløp',           detail: '10 sprinter på 10–20 meter', bullets: ['Full fart', 'Gå rolig tilbake mellom hver'] },
@@ -374,7 +374,7 @@ export default function App() {
             </div>
 
             {/* streak hero */}
-            <div style={{ margin: '-26px 20px 0', background: 'var(--text-dark)', borderRadius: 20, padding: '17px 20px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', color: '#fff', boxShadow: '0 8px 22px rgba(0,0,0,0.28)' }}>
+            <div style={{ margin: '-26px 20px 0', background: 'var(--driv-blue)', borderRadius: 20, padding: '17px 20px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', color: '#fff', boxShadow: '0 8px 22px rgba(35,52,122,0.28)' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: 14 }}>
                 <div style={{ width: 50, height: 50, borderRadius: 9999, background: 'rgba(255,164,36,0.18)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 27 }}>🔥</div>
                 <div>
@@ -447,7 +447,7 @@ export default function App() {
               <div style={{ font: '700 11px Inter,sans-serif', letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--text-label)', marginBottom: 12 }}>Dine rekorder</div>
               <div style={{ background: '#fff', border: '1px solid var(--border)', borderRadius: 16, padding: 6, display: 'flex' }}>
                 <div style={{ flex: 1, display: 'flex', alignItems: 'center', gap: 11, padding: 12 }}>
-                  <div style={{ flexShrink: 0, width: 42, height: 42, borderRadius: 12, background: 'var(--purple-tint)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 22 }}>⚽</div>
+                  <div style={{ flexShrink: 0, width: 42, height: 42, borderRadius: 12, background: 'var(--driv-blue-tint)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 22 }}>⚽</div>
                   <div>
                     <div style={{ fontFamily: "'Roboto Mono',monospace", fontWeight: 700, fontSize: 22, color: 'var(--driv-blue)', lineHeight: 1 }}>{progress.pb?.touches || '–'}</div>
                     <div style={{ font: '500 11px Inter,sans-serif', color: 'var(--text-muted)', marginTop: 3 }}>Berøringer / min</div>
@@ -470,7 +470,7 @@ export default function App() {
 
         {/* ═══ SESSION PLAYER ═══ */}
         {view === 'session' && (
-          <div style={{ minHeight: '100vh', background: 'var(--text-dark)', color: '#fff', display: 'flex', flexDirection: 'column' }}>
+          <div style={{ minHeight: '100vh', background: 'var(--driv-blue)', color: '#fff', display: 'flex', flexDirection: 'column' }}>
 
             {/* header */}
             <div style={{ display: 'flex', alignItems: 'center', gap: 12, padding: '18px 18px 10px' }}>
@@ -602,7 +602,7 @@ export default function App() {
             </div>
 
             {/* sticky footer */}
-            <div style={{ position: 'sticky', bottom: 0, background: 'var(--text-dark)', borderTop: '1px solid rgba(255,255,255,0.12)', padding: '14px 20px 22px', display: 'flex', flexDirection: 'column', gap: 8 }}>
+            <div style={{ position: 'sticky', bottom: 0, background: 'var(--driv-blue)', borderTop: '1px solid rgba(255,255,255,0.12)', padding: '14px 20px 22px', display: 'flex', flexDirection: 'column', gap: 8 }}>
               <button onClick={handleNext} style={{ border: 'none', cursor: 'pointer', background: 'var(--accent)', color: 'var(--text-dark)', font: '700 17px Inter,sans-serif', padding: 16, borderRadius: 14, width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8 }}>
                 {isLast ? (isChallenge ? 'Lagre og fullfør' : 'Fullfør økt') : 'Neste øvelse'}
                 <Icon name="arrow_forward" size={21} />

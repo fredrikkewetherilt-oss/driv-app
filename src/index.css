@@ -13,6 +13,7 @@
 
   /* ---- Driv klubbfarger ---- */
   --driv-blue:        #23347a;
+  --driv-blue-tint:   #e7ebf6;
   --driv-red:         #c71f40;
 
   /* ---- Aksent / handling (gul) ---- */
@@ -26,14 +27,11 @@
   --green-text:       #19430a;
   --celebrate:        #1f9d57;
 
-  /* ---- Merker / rekorder ---- */
-  --purple:           #7732b9;
-  --purple-tint:      #ebe0f5;
+  /* ---- Merker ---- */
   --badge-bg:         #fff8e9;
   --badge-border:     #ffe5b9;
   --badge-locked-bg:  #f3eee6;
   --badge-locked-bd:  #e6e0d7;
-  --red:              #e02e04;
 
   /* ---- Sommer-kort ---- */
   --summer-bg:        #fff4e0;
