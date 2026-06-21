@@ -47,7 +47,7 @@ html, body { margin: 0; padding: 0; width: 100%; background: #23347a; font-famil
 
 .app-outer {
   min-height: 100vh;
-  background: var(--bg-app);
+  background: transparent;
   display: flex;
   justify-content: center;
 }
@@ -57,7 +57,7 @@ html, body { margin: 0; padding: 0; width: 100%; background: #23347a; font-famil
   max-width: 430px;
   min-height: 100vh;
   position: relative;
-  background: var(--bg-app);
+  background: transparent;
   overflow: hidden;
 }
 
