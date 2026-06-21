@@ -420,7 +420,7 @@ export default function App() {
                         <Icon name="check_circle" size={18} />Gjort
                       </div>
                     ) : (
-                      <div style={{ flexShrink: 0, width: 40, height: 40, borderRadius: 9999, background: 'var(--accent)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--text-dark)' }}>
+                      <div style={{ flexShrink: 0, width: 40, height: 40, borderRadius: 9999, background: 'var(--driv-red)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff' }}>
                         <Icon name="play_arrow" size={23} />
                       </div>
                     )}
@@ -488,7 +488,7 @@ export default function App() {
 
             {/* progress bar */}
             <div style={{ height: 6, background: 'rgba(255,255,255,0.12)', borderRadius: 9999, margin: '6px 20px 0' }}>
-              <div style={{ height: '100%', width: progressPct, background: 'var(--accent)', borderRadius: 9999, transition: 'width 0.35s ease' }} />
+              <div style={{ height: '100%', width: progressPct, background: 'var(--green)', borderRadius: 9999, transition: 'width 0.35s ease' }} />
             </div>
 
             {/* scrollable body */}
@@ -518,7 +518,7 @@ export default function App() {
                   <div style={{ position: 'relative', width: 172, height: 172 }}>
                     <svg width="172" height="172" viewBox="0 0 120 120" style={{ transform: 'rotate(-90deg)' }}>
                       <circle cx="60" cy="60" r="52" fill="none" stroke="rgba(255,255,255,0.12)" strokeWidth="9" />
-                      <circle cx="60" cy="60" r="52" fill="none" stroke="#ffa424" strokeWidth="9" strokeLinecap="round" strokeDasharray="326.73" strokeDashoffset={timerOffset} style={{ transition: 'stroke-dashoffset 1s linear' }} />
+                      <circle cx="60" cy="60" r="52" fill="none" stroke="#43c878" strokeWidth="9" strokeLinecap="round" strokeDasharray="326.73" strokeDashoffset={timerOffset} style={{ transition: 'stroke-dashoffset 1s linear' }} />
                     </svg>
                     <div style={{ position: 'absolute', inset: 0, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
                       <div style={{ fontFamily: "'Roboto Mono',monospace", fontWeight: 700, fontSize: 38, letterSpacing: '-0.02em' }}>{fmt(timerLeft)}</div>
@@ -603,7 +603,7 @@ export default function App() {
 
             {/* sticky footer */}
             <div style={{ position: 'sticky', bottom: 0, background: 'var(--driv-blue)', borderTop: '1px solid rgba(255,255,255,0.12)', padding: '14px 20px 22px', display: 'flex', flexDirection: 'column', gap: 8 }}>
-              <button onClick={handleNext} style={{ border: 'none', cursor: 'pointer', background: 'var(--accent)', color: 'var(--text-dark)', font: '700 17px Inter,sans-serif', padding: 16, borderRadius: 14, width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8 }}>
+              <button onClick={handleNext} style={{ border: 'none', cursor: 'pointer', background: 'var(--driv-red)', color: '#fff', font: '700 17px Inter,sans-serif', padding: 16, borderRadius: 14, width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8 }}>
                 {isLast ? (isChallenge ? 'Lagre og fullfør' : 'Fullfør økt') : 'Neste øvelse'}
                 <Icon name="arrow_forward" size={21} />
               </button>
