@@ -317,7 +317,7 @@ export default function App() {
 
         {/* ═══ NAME SCREEN ═══ */}
         {view === 'name' && (
-          <div style={{ minHeight: '100vh', background: 'var(--driv-blue)', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: '32px 30px', textAlign: 'center' }}>
+          <div style={{ minHeight: '100vh', background: 'var(--driv-blue)', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: 'calc(32px + env(safe-area-inset-top)) 30px calc(32px + env(safe-area-inset-bottom))', textAlign: 'center' }}>
             <div style={{ width: 72, height: 72, borderRadius: 20, background: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: '0 4px 16px rgba(0,0,0,0.22)' }}>
               <img src="/assets/driv-logo.png" alt="Driv Fotball" style={{ width: 54, height: 'auto' }} />
             </div>
@@ -343,10 +343,10 @@ export default function App() {
 
         {/* ═══ HOME SCREEN ═══ */}
         {view === 'home' && (
-          <div style={{ minHeight: '100vh', background: 'var(--bg-app)', paddingBottom: 36 }}>
+          <div style={{ minHeight: '100vh', background: 'var(--bg-app)', paddingBottom: 'calc(36px + env(safe-area-inset-bottom))' }}>
 
             {/* navy header band */}
-            <div style={{ background: 'var(--driv-blue)', padding: '20px 20px 42px' }}>
+            <div style={{ background: 'var(--driv-blue)', padding: 'calc(20px + env(safe-area-inset-top)) 20px 42px' }}>
               <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: 13 }}>
                   <div style={{ flexShrink: 0, width: 50, height: 50, borderRadius: 14, background: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: '0 2px 8px rgba(0,0,0,0.18)' }}>
@@ -473,7 +473,7 @@ export default function App() {
           <div style={{ minHeight: '100vh', background: 'var(--driv-blue)', color: '#fff', display: 'flex', flexDirection: 'column' }}>
 
             {/* header */}
-            <div style={{ display: 'flex', alignItems: 'center', gap: 12, padding: '18px 18px 10px' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 12, padding: 'calc(18px + env(safe-area-inset-top)) 18px 10px' }}>
               <button onClick={goBack} style={{ border: 'none', background: 'rgba(255,255,255,0.08)', cursor: 'pointer', width: 38, height: 38, borderRadius: 9999, display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff' }}>
                 <Icon name="arrow_back" size={22} />
               </button>
@@ -602,7 +602,7 @@ export default function App() {
             </div>
 
             {/* sticky footer */}
-            <div style={{ position: 'sticky', bottom: 0, background: 'var(--driv-blue)', borderTop: '1px solid rgba(255,255,255,0.12)', padding: '14px 20px 22px', display: 'flex', flexDirection: 'column', gap: 8 }}>
+            <div style={{ position: 'sticky', bottom: 0, background: 'var(--driv-blue)', borderTop: '1px solid rgba(255,255,255,0.12)', padding: '14px 20px calc(22px + env(safe-area-inset-bottom))', display: 'flex', flexDirection: 'column', gap: 8 }}>
               <button onClick={handleNext} style={{ border: 'none', cursor: 'pointer', background: 'var(--driv-red)', color: '#fff', font: '700 17px Inter,sans-serif', padding: 16, borderRadius: 14, width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8 }}>
                 {isLast ? (isChallenge ? 'Lagre og fullfør' : 'Fullfør økt') : 'Neste øvelse'}
                 <Icon name="arrow_forward" size={21} />
@@ -648,7 +648,7 @@ export default function App() {
         {view === 'done' && (() => {
           const ld = lastDone || {};
           return (
-            <div style={{ minHeight: '100vh', background: 'var(--accent)', color: 'var(--text-dark)', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: '36px 26px', textAlign: 'center', position: 'relative', overflow: 'hidden' }}>
+            <div style={{ minHeight: '100vh', background: 'var(--accent)', color: 'var(--text-dark)', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: 'calc(36px + env(safe-area-inset-top)) 26px calc(36px + env(safe-area-inset-bottom))', textAlign: 'center', position: 'relative', overflow: 'hidden' }}>
               {/* confetti */}
               <div style={{ position: 'absolute', inset: 0, pointerEvents: 'none' }}>
                 {[
