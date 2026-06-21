@@ -374,7 +374,7 @@ export default function App() {
             </div>
 
             {/* streak hero */}
-            <div style={{ margin: '-26px 20px 0', background: 'var(--driv-blue)', borderRadius: 20, padding: '17px 20px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', color: '#fff', boxShadow: '0 8px 22px rgba(35,52,122,0.28)' }}>
+            <div style={{ margin: '-26px 20px 0', background: 'var(--celebrate)', borderRadius: 20, padding: '17px 20px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', color: '#fff', boxShadow: '0 8px 22px rgba(31,157,87,0.30)' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: 14 }}>
                 <div style={{ width: 50, height: 50, borderRadius: 9999, background: 'rgba(255,164,36,0.18)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 27 }}>🔥</div>
                 <div>
