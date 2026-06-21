@@ -321,7 +321,7 @@ export default function App() {
             <div style={{ width: 72, height: 72, borderRadius: 20, background: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: '0 4px 16px rgba(0,0,0,0.22)' }}>
               <img src="/assets/driv-logo.png" alt="Driv Fotball" style={{ width: 54, height: 'auto' }} />
             </div>
-            <div style={{ fontFamily: "'Copernicus',Georgia,serif", fontWeight: 700, fontSize: 30, color: '#fff', marginTop: 22, letterSpacing: '-0.01em' }}>Velkommen!</div>
+            <div style={{ fontFamily: "'Inter',sans-serif", fontWeight: 800, fontSize: 30, color: '#fff', marginTop: 22, letterSpacing: '-0.02em' }}>Velkommen!</div>
             <div style={{ font: '400 15px/22px Inter,sans-serif', color: 'rgba(255,255,255,0.8)', marginTop: 10, maxWidth: 280 }}>
               Skriv inn fornavnet ditt, så heier vi på deg gjennom hver økt.
             </div>
@@ -353,7 +353,7 @@ export default function App() {
                     <img src="/assets/driv-logo.png" alt="Driv Fotball" style={{ width: 38, height: 'auto' }} />
                   </div>
                   <div>
-                    <div style={{ fontFamily: "'Copernicus',Georgia,serif", fontWeight: 700, fontSize: 24, lineHeight: 1, color: '#fff', letterSpacing: '-0.01em' }}>Egentrening</div>
+                    <div style={{ fontFamily: "'Inter',sans-serif", fontWeight: 800, fontSize: 24, lineHeight: 1, color: '#fff', letterSpacing: '-0.02em' }}>Egentrening</div>
                     <div style={{ font: '600 12px/1 Inter,sans-serif', color: 'rgba(255,255,255,0.7)', marginTop: 6, letterSpacing: '0.03em' }}>Driv Fotball · Jenter 2013</div>
                   </div>
                 </div>
@@ -494,7 +494,7 @@ export default function App() {
             {/* scrollable body */}
             <div style={{ flex: 1, padding: '24px 20px 12px', display: 'flex', flexDirection: 'column', gap: 18, overflowY: 'auto' }}>
               <div>
-                <div style={{ fontFamily: "'Copernicus',Georgia,serif", fontWeight: 700, fontSize: 28, lineHeight: 1.1, letterSpacing: '-0.01em' }}>{step?.name}</div>
+                <div style={{ fontFamily: "'Inter',sans-serif", fontWeight: 800, fontSize: 28, lineHeight: 1.1, letterSpacing: '-0.02em' }}>{step?.name}</div>
                 <div style={{ font: '400 15px/22px Inter,sans-serif', color: 'rgba(255,255,255,0.72)', marginTop: 6 }}>{step?.detail}</div>
               </div>
 
@@ -669,7 +669,7 @@ export default function App() {
 
               <div style={{ position: 'relative', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
                 <div style={{ width: 104, height: 104, borderRadius: 9999, background: '#17001e', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 56, boxShadow: '0 6px 20px rgba(0,0,0,0.15)', animation: 'j13pop 0.5s ease-out both' }}>🏆</div>
-                <div style={{ fontFamily: "'Copernicus',Georgia,serif", fontWeight: 700, fontSize: 40, lineHeight: 1, color: '#17001e', marginTop: 18, letterSpacing: '-0.01em' }}>{ld.headline || 'Bra jobba!'}</div>
+                <div style={{ fontFamily: "'Inter',sans-serif", fontWeight: 800, fontSize: 40, lineHeight: 1, color: '#17001e', marginTop: 18, letterSpacing: '-0.02em' }}>{ld.headline || 'Bra jobba!'}</div>
                 <div style={{ font: '500 16px/22px Inter,sans-serif', color: '#17001e', opacity: 0.9, marginTop: 8, maxWidth: 280 }}>Du fullførte «{ld.title}»</div>
 
                 <div style={{ display: 'flex', gap: 12, marginTop: 26 }}>
