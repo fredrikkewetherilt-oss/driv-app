@@ -134,7 +134,7 @@ function Icon({ name, size = 22, style: extra }) {
 export default function App() {
   const [progress, setProgressRaw] = useState(() => loadProgress() ?? { completed: {}, pb: {}, streak: 0, totalDone: 0 });
   const [view, setView]             = useState(() => (loadProgress()?.name ? 'home' : 'name'));
-  const [week, setWeek]             = useState(3);
+  const [week, setWeek]             = useState(1);
   const [nameInput, setNameInput]   = useState('');
   const [activeSession, setActiveSession] = useState(null);
   const [stepIndex, setStepIndex]   = useState(0);
