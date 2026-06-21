@@ -312,8 +312,8 @@ export default function App() {
 
   // ── Phone wrapper ─────────────────────────────────────────────────────────────
   return (
-    <div style={{ minHeight: '100vh', background: 'var(--bg-side)', display: 'flex', justifyContent: 'center' }}>
-      <div style={{ width: '100%', maxWidth: 430, minHeight: '100vh', position: 'relative', background: 'var(--bg-app)', overflow: 'hidden', boxShadow: '0 0 60px rgba(35,52,122,0.12)' }}>
+    <div className="app-outer">
+      <div className="app-shell">
 
         {/* ═══ NAME SCREEN ═══ */}
         {view === 'name' && (
