@@ -596,7 +596,7 @@ export default function App() {
                 </div>
               )}
 
-              <div style={{ display: 'flex', alignItems: 'center', gap: 8, color: 'var(--accent)', font: '600 14px Inter,sans-serif', marginTop: 2 }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: 8, color: 'var(--green)', font: '600 14px Inter,sans-serif', marginTop: 2 }}>
                 ✨ {CHEERS[stepIndex % CHEERS.length]}
               </div>
             </div>
