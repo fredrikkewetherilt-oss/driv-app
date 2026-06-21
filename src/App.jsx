@@ -146,6 +146,16 @@ export default function App() {
   const [imageModal, setImageModal] = useState(null);
   const [lastDone, setLastDone]     = useState(null);
 
+  // Sync html background + Safari theme-color to current screen
+  useEffect(() => {
+    const color = view === 'session' ? '#23347a'
+                : view === 'done'    ? '#ffa424'
+                : view === 'name'    ? '#23347a'
+                :                     '#fbf8f3';
+    document.documentElement.style.background = color;
+    document.querySelector('meta[name="theme-color"]')?.setAttribute('content', color);
+  }, [view]);
+
   // Timer tick
   useEffect(() => {
     if (!timerRunning) return;
