@@ -33,7 +33,7 @@ const SESSIONS = {
     ],
   },
   A: {
-    kind: 'Ballkontroll', title: 'Ballkontroll og føring', dur: '25–30 min', icon: '⚽', tint: '#e7ebf6',
+    kind: 'Ballkontroll', title: 'Ballkontroll og føring', dur: '25–30 min', icon: '⚽', tint: '#eee8fd',
     steps: [
       { type: 'timer',     name: 'Triksing og fri lek',      detail: 'Bli venn med ballen',       seconds: 300, bullets: ['Hold ballen i lufta', 'Prøv begge føtter'] },
       { type: 'timer',     name: 'Føring med begge bein',    detail: 'Rolig og kontrollert',       seconds: 600, bullets: ['Innside', 'Utside', 'Såle'], videos: [{ label: 'Føring: innside, utside, såle', embed: 'J6U-YClb6AM' }] },
@@ -42,7 +42,7 @@ const SESSIONS = {
     ],
   },
   B: {
-    kind: 'Pasning', title: 'Pasning og mottak', dur: '25–30 min', icon: '⚽', tint: '#e7ebf6',
+    kind: 'Pasning', title: 'Pasning og mottak', dur: '25–30 min', icon: '⚽', tint: '#eee8fd',
     steps: [
       { type: 'timer', name: 'Oppvarming med ball',              detail: 'Korte, lette pasninger', seconds: 180, bullets: ['Lette touch', 'Begge føtter'] },
       { type: 'do',    name: '50 pasninger – høyre fot',         detail: 'Mot vegg eller med partner', bullets: ['Treff samme punkt', 'Rolig og presist'] },
@@ -53,7 +53,7 @@ const SESSIONS = {
     ],
   },
   C: {
-    kind: 'Avslutninger', title: 'Avslutninger og hurtighet', dur: '25–30 min', icon: '⚽', tint: '#e7ebf6',
+    kind: 'Avslutninger', title: 'Avslutninger og hurtighet', dur: '25–30 min', icon: '⚽', tint: '#eee8fd',
     steps: [
       { type: 'timer',     name: 'Oppvarming med ball', detail: 'Få opp tempoet',         seconds: 300, bullets: ['Lett føring', 'Noen lette pasninger'] },
       { type: 'do',        name: 'Sprintløp',           detail: '10 sprinter på 10–20 meter', bullets: ['Full fart', 'Gå rolig tilbake mellom hver'] },
@@ -300,8 +300,8 @@ export default function App() {
   const badges = BADGE_DEFS.map(d => ({
     name: d.name,
     icon: earned[d.id] ? d.icon : '🔒',
-    bg:   earned[d.id] ? '#e3f4ea' : '#f3eee6',
-    border: earned[d.id] ? '#bfe8cf' : '#e6e0d7',
+    bg:   earned[d.id] ? '#fff8e9' : '#f3eee6',
+    border: earned[d.id] ? '#ffe5b9' : '#e6e0d7',
     labelColor: earned[d.id] ? '#23347a' : '#a29c95',
     filter: earned[d.id] ? 'none' : 'grayscale(1) opacity(0.7)',
   }));
@@ -312,7 +312,7 @@ export default function App() {
 
   // ── Phone wrapper ─────────────────────────────────────────────────────────────
   return (
-    <div style={{ minHeight: '100vh', background: '#e7e3da', display: 'flex', justifyContent: 'center' }}>
+    <div style={{ minHeight: '100vh', background: '#e5dff5', display: 'flex', justifyContent: 'center' }}>
       <div style={{ width: '100%', maxWidth: 430, minHeight: '100vh', position: 'relative', background: '#fbf8f3', overflow: 'hidden', boxShadow: '0 0 60px rgba(35,52,122,0.12)' }}>
 
         {/* ═══ NAME SCREEN ═══ */}
@@ -447,7 +447,7 @@ export default function App() {
               <div style={{ font: '700 11px Inter,sans-serif', letterSpacing: '0.08em', textTransform: 'uppercase', color: '#a29c95', marginBottom: 12 }}>Dine rekorder</div>
               <div style={{ background: '#fff', border: '1px solid #c3bdb6', borderRadius: 16, padding: 6, display: 'flex' }}>
                 <div style={{ flex: 1, display: 'flex', alignItems: 'center', gap: 11, padding: 12 }}>
-                  <div style={{ flexShrink: 0, width: 42, height: 42, borderRadius: 12, background: '#e7ebf6', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 22 }}>⚽</div>
+                  <div style={{ flexShrink: 0, width: 42, height: 42, borderRadius: 12, background: '#ebe0f5', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 22 }}>⚽</div>
                   <div>
                     <div style={{ fontFamily: "'Roboto Mono',monospace", fontWeight: 700, fontSize: 22, color: '#23347a', lineHeight: 1 }}>{progress.pb?.touches || '–'}</div>
                     <div style={{ font: '500 11px Inter,sans-serif', color: '#6b6761', marginTop: 3 }}>Berøringer / min</div>
