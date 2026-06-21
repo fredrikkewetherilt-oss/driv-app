@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useLayoutEffect } from 'react';
 
 // ─── Data ────────────────────────────────────────────────────────────────────
 
@@ -146,13 +146,14 @@ export default function App() {
   const [imageModal, setImageModal] = useState(null);
   const [lastDone, setLastDone]     = useState(null);
 
-  // Sync html background + Safari theme-color to current screen
-  useEffect(() => {
-    const color = view === 'session' ? '#23347a'
-                : view === 'done'    ? '#ffa424'
-                : view === 'name'    ? '#23347a'
-                :                     '#fbf8f3';
+  // Sync html + body background and Safari theme-color to current screen.
+  // useLayoutEffect runs synchronously before paint, preventing any flash.
+  useLayoutEffect(() => {
+    const color = view === 'home' ? '#fbf8f3'
+                : view === 'done' ? '#ffa424'
+                :                   '#23347a';
     document.documentElement.style.background = color;
+    document.body.style.background = color;
     document.querySelector('meta[name="theme-color"]')?.setAttribute('content', color);
   }, [view]);
 

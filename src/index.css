@@ -42,7 +42,7 @@
 }
 
 * { box-sizing: border-box; }
-html, body { margin: 0; padding: 0; width: 100%; background: var(--bg-app); font-family: 'Inter', -apple-system, sans-serif; }
+html, body { margin: 0; padding: 0; width: 100%; background: #23347a; font-family: 'Inter', -apple-system, sans-serif; overscroll-behavior: none; }
 ::-webkit-scrollbar { width: 0; height: 0; }
 
 .app-outer {
