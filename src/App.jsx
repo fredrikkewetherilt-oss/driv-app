@@ -300,9 +300,9 @@ export default function App() {
   const badges = BADGE_DEFS.map(d => ({
     name: d.name,
     icon: earned[d.id] ? d.icon : '🔒',
-    bg:   earned[d.id] ? '#fff8e9' : '#f3eee6',
-    border: earned[d.id] ? '#ffe5b9' : '#e6e0d7',
-    labelColor: earned[d.id] ? '#23347a' : '#a29c95',
+    bg:   earned[d.id] ? 'var(--badge-bg)' : 'var(--badge-locked-bg)',
+    border: earned[d.id] ? 'var(--badge-border)' : 'var(--badge-locked-bd)',
+    labelColor: earned[d.id] ? 'var(--driv-blue)' : 'var(--text-label)',
     filter: earned[d.id] ? 'none' : 'grayscale(1) opacity(0.7)',
   }));
 
@@ -312,12 +312,12 @@ export default function App() {
 
   // ── Phone wrapper ─────────────────────────────────────────────────────────────
   return (
-    <div style={{ minHeight: '100vh', background: '#e5dff5', display: 'flex', justifyContent: 'center' }}>
-      <div style={{ width: '100%', maxWidth: 430, minHeight: '100vh', position: 'relative', background: '#fbf8f3', overflow: 'hidden', boxShadow: '0 0 60px rgba(35,52,122,0.12)' }}>
+    <div style={{ minHeight: '100vh', background: 'var(--bg-side)', display: 'flex', justifyContent: 'center' }}>
+      <div style={{ width: '100%', maxWidth: 430, minHeight: '100vh', position: 'relative', background: 'var(--bg-app)', overflow: 'hidden', boxShadow: '0 0 60px rgba(35,52,122,0.12)' }}>
 
         {/* ═══ NAME SCREEN ═══ */}
         {view === 'name' && (
-          <div style={{ minHeight: '100vh', background: '#23347a', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: '32px 30px', textAlign: 'center' }}>
+          <div style={{ minHeight: '100vh', background: 'var(--driv-blue)', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: '32px 30px', textAlign: 'center' }}>
             <div style={{ width: 72, height: 72, borderRadius: 20, background: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: '0 4px 16px rgba(0,0,0,0.22)' }}>
               <img src="/assets/driv-logo.png" alt="Driv Fotball" style={{ width: 54, height: 'auto' }} />
             </div>
@@ -330,9 +330,9 @@ export default function App() {
               onChange={e => setNameInput(e.target.value)}
               onKeyDown={e => e.key === 'Enter' && setName()}
               placeholder="Fornavnet ditt"
-              style={{ width: '100%', maxWidth: 300, marginTop: 24, padding: '15px 18px', border: 'none', borderRadius: 14, background: '#fff', color: '#23347a', font: '600 17px Inter,sans-serif', textAlign: 'center', outline: 'none' }}
+              style={{ width: '100%', maxWidth: 300, marginTop: 24, padding: '15px 18px', border: 'none', borderRadius: 14, background: '#fff', color: 'var(--driv-blue)', font: '600 17px Inter,sans-serif', textAlign: 'center', outline: 'none' }}
             />
-            <button onClick={setName} style={{ width: '100%', maxWidth: 300, marginTop: 14, border: 'none', cursor: 'pointer', background: '#c71f40', color: '#fff', font: '700 17px Inter,sans-serif', padding: 16, borderRadius: 14 }}>
+            <button onClick={setName} style={{ width: '100%', maxWidth: 300, marginTop: 14, border: 'none', cursor: 'pointer', background: 'var(--driv-red)', color: '#fff', font: '700 17px Inter,sans-serif', padding: 16, borderRadius: 14 }}>
               Kom i gang ⚽
             </button>
             <button onClick={setName} style={{ marginTop: 12, border: 'none', background: 'transparent', cursor: 'pointer', color: 'rgba(255,255,255,0.55)', font: '600 14px Inter,sans-serif' }}>
@@ -343,10 +343,10 @@ export default function App() {
 
         {/* ═══ HOME SCREEN ═══ */}
         {view === 'home' && (
-          <div style={{ minHeight: '100vh', background: '#fbf8f3', paddingBottom: 36 }}>
+          <div style={{ minHeight: '100vh', background: 'var(--bg-app)', paddingBottom: 36 }}>
 
             {/* navy header band */}
-            <div style={{ background: '#23347a', padding: '20px 20px 42px' }}>
+            <div style={{ background: 'var(--driv-blue)', padding: '20px 20px 42px' }}>
               <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: 13 }}>
                   <div style={{ flexShrink: 0, width: 50, height: 50, borderRadius: 14, background: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: '0 2px 8px rgba(0,0,0,0.18)' }}>
@@ -374,7 +374,7 @@ export default function App() {
             </div>
 
             {/* streak hero */}
-            <div style={{ margin: '-26px 20px 0', background: '#17001e', borderRadius: 20, padding: '17px 20px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', color: '#fff', boxShadow: '0 8px 22px rgba(0,0,0,0.28)' }}>
+            <div style={{ margin: '-26px 20px 0', background: 'var(--text-dark)', borderRadius: 20, padding: '17px 20px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', color: '#fff', boxShadow: '0 8px 22px rgba(0,0,0,0.28)' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: 14 }}>
                 <div style={{ width: 50, height: 50, borderRadius: 9999, background: 'rgba(255,164,36,0.18)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 27 }}>🔥</div>
                 <div>
@@ -386,41 +386,41 @@ export default function App() {
                 </div>
               </div>
               <div style={{ textAlign: 'center', paddingLeft: 14, borderLeft: '1px solid rgba(255,255,255,0.25)' }}>
-                <div style={{ fontFamily: "'Roboto Mono',monospace", fontWeight: 700, fontSize: 20, color: '#ffa424' }}>{doneCount} / 2</div>
+                <div style={{ fontFamily: "'Roboto Mono',monospace", fontWeight: 700, fontSize: 20, color: 'var(--accent)' }}>{doneCount} / 2</div>
                 <div style={{ font: '600 11px Inter,sans-serif', color: 'rgba(255,255,255,0.8)' }}>denne uka</div>
               </div>
             </div>
 
             {/* summer note */}
-            <div style={{ margin: '16px 20px 0', background: '#fff4e0', border: '1px solid #ffe1ad', borderRadius: 18, padding: '14px 16px', display: 'flex', alignItems: 'flex-start', gap: 13 }}>
+            <div style={{ margin: '16px 20px 0', background: 'var(--summer-bg)', border: '1px solid var(--summer-border)', borderRadius: 18, padding: '14px 16px', display: 'flex', alignItems: 'flex-start', gap: 13 }}>
               <div style={{ flexShrink: 0, width: 42, height: 42, borderRadius: 12, background: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 24 }}>☀️</div>
               <div>
-                <div style={{ font: '700 14px Inter,sans-serif', color: '#23347a' }}>{summerTitle}</div>
-                <div style={{ font: '400 13px/19px Inter,sans-serif', color: '#6b6761', marginTop: 3 }}>{summerBody}</div>
+                <div style={{ font: '700 14px Inter,sans-serif', color: 'var(--driv-blue)' }}>{summerTitle}</div>
+                <div style={{ font: '400 13px/19px Inter,sans-serif', color: 'var(--text-muted)', marginTop: 3 }}>{summerBody}</div>
               </div>
             </div>
 
             {/* sessions */}
             <div style={{ padding: '0 20px', marginTop: 24 }}>
-              <div style={{ font: '700 11px Inter,sans-serif', letterSpacing: '0.08em', textTransform: 'uppercase', color: '#a29c95', marginBottom: 12 }}>Øktene denne uka</div>
+              <div style={{ font: '700 11px Inter,sans-serif', letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--text-label)', marginBottom: 12 }}>Øktene denne uka</div>
               <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
                 {sessionCards.map(s => (
-                  <button key={s.id} onClick={() => openSession(s.id)} style={{ display: 'flex', alignItems: 'center', gap: 14, width: '100%', textAlign: 'left', background: '#fff', border: '1px solid #c3bdb6', borderRadius: 18, padding: 14, cursor: 'pointer', boxShadow: '0 2px 12px rgba(66,64,61,0.06)' }}>
+                  <button key={s.id} onClick={() => openSession(s.id)} style={{ display: 'flex', alignItems: 'center', gap: 14, width: '100%', textAlign: 'left', background: '#fff', border: '1px solid var(--border)', borderRadius: 18, padding: 14, cursor: 'pointer', boxShadow: '0 2px 12px rgba(66,64,61,0.06)' }}>
                     <div style={{ flexShrink: 0, width: 58, height: 58, borderRadius: 16, background: s.tint, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 30 }}>{s.icon}</div>
                     <div style={{ flex: 1, minWidth: 0 }}>
-                      <div style={{ font: '700 10px Inter,sans-serif', letterSpacing: '0.07em', textTransform: 'uppercase', color: '#a29c95' }}>{s.label}</div>
-                      <div style={{ font: '700 17px/22px Inter,sans-serif', color: '#23347a', marginTop: 3 }}>{s.title}</div>
-                      <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginTop: 5, color: '#6b6761' }}>
+                      <div style={{ font: '700 10px Inter,sans-serif', letterSpacing: '0.07em', textTransform: 'uppercase', color: 'var(--text-label)' }}>{s.label}</div>
+                      <div style={{ font: '700 17px/22px Inter,sans-serif', color: 'var(--driv-blue)', marginTop: 3 }}>{s.title}</div>
+                      <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginTop: 5, color: 'var(--text-muted)' }}>
                         <span style={{ display: 'inline-flex', alignItems: 'center', gap: 4, font: '500 12px Inter,sans-serif' }}><Icon name="schedule" size={15} />{s.dur}</span>
                         <span style={{ display: 'inline-flex', alignItems: 'center', gap: 4, font: '500 12px Inter,sans-serif' }}><Icon name="format_list_numbered" size={15} />{s.stepsCount} øvelser</span>
                       </div>
                     </div>
                     {s.done ? (
-                      <div style={{ flexShrink: 0, display: 'flex', alignItems: 'center', gap: 5, background: '#e3f2db', color: '#19430a', borderRadius: 9999, padding: '6px 11px 6px 8px', font: '600 12px Inter,sans-serif' }}>
+                      <div style={{ flexShrink: 0, display: 'flex', alignItems: 'center', gap: 5, background: 'var(--green-bg)', color: 'var(--green-text)', borderRadius: 9999, padding: '6px 11px 6px 8px', font: '600 12px Inter,sans-serif' }}>
                         <Icon name="check_circle" size={18} />Gjort
                       </div>
                     ) : (
-                      <div style={{ flexShrink: 0, width: 40, height: 40, borderRadius: 9999, background: '#ffa424', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#17001e' }}>
+                      <div style={{ flexShrink: 0, width: 40, height: 40, borderRadius: 9999, background: 'var(--accent)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--text-dark)' }}>
                         <Icon name="play_arrow" size={23} />
                       </div>
                     )}
@@ -431,7 +431,7 @@ export default function App() {
 
             {/* badges */}
             <div style={{ marginTop: 26 }}>
-              <div style={{ font: '700 11px Inter,sans-serif', letterSpacing: '0.08em', textTransform: 'uppercase', color: '#a29c95', padding: '0 20px', marginBottom: 12 }}>Merker du har samlet</div>
+              <div style={{ font: '700 11px Inter,sans-serif', letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--text-label)', padding: '0 20px', marginBottom: 12 }}>Merker du har samlet</div>
               <div style={{ display: 'flex', gap: 12, overflowX: 'auto', padding: '2px 20px 6px' }}>
                 {badges.map(b => (
                   <div key={b.name} style={{ flexShrink: 0, width: 76, textAlign: 'center' }}>
@@ -444,23 +444,23 @@ export default function App() {
 
             {/* records */}
             <div style={{ margin: '24px 20px 0' }}>
-              <div style={{ font: '700 11px Inter,sans-serif', letterSpacing: '0.08em', textTransform: 'uppercase', color: '#a29c95', marginBottom: 12 }}>Dine rekorder</div>
-              <div style={{ background: '#fff', border: '1px solid #c3bdb6', borderRadius: 16, padding: 6, display: 'flex' }}>
+              <div style={{ font: '700 11px Inter,sans-serif', letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--text-label)', marginBottom: 12 }}>Dine rekorder</div>
+              <div style={{ background: '#fff', border: '1px solid var(--border)', borderRadius: 16, padding: 6, display: 'flex' }}>
                 <div style={{ flex: 1, display: 'flex', alignItems: 'center', gap: 11, padding: 12 }}>
-                  <div style={{ flexShrink: 0, width: 42, height: 42, borderRadius: 12, background: '#ebe0f5', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 22 }}>⚽</div>
+                  <div style={{ flexShrink: 0, width: 42, height: 42, borderRadius: 12, background: 'var(--purple-tint)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 22 }}>⚽</div>
                   <div>
-                    <div style={{ fontFamily: "'Roboto Mono',monospace", fontWeight: 700, fontSize: 22, color: '#23347a', lineHeight: 1 }}>{progress.pb?.touches || '–'}</div>
-                    <div style={{ font: '500 11px Inter,sans-serif', color: '#6b6761', marginTop: 3 }}>Berøringer / min</div>
+                    <div style={{ fontFamily: "'Roboto Mono',monospace", fontWeight: 700, fontSize: 22, color: 'var(--driv-blue)', lineHeight: 1 }}>{progress.pb?.touches || '–'}</div>
+                    <div style={{ font: '500 11px Inter,sans-serif', color: 'var(--text-muted)', marginTop: 3 }}>Berøringer / min</div>
                   </div>
                 </div>
-                <div style={{ width: 1, background: '#eae5dc', margin: '8px 0' }} />
+                <div style={{ width: 1, background: 'var(--hairline)', margin: '8px 0' }} />
                 <div style={{ flex: 1, display: 'flex', alignItems: 'center', gap: 11, padding: 12 }}>
                   <div style={{ flexShrink: 0, width: 42, height: 42, borderRadius: 12, background: '#fbe3e8', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 22 }}>🎯</div>
                   <div>
-                    <div style={{ fontFamily: "'Roboto Mono',monospace", fontWeight: 700, fontSize: 22, color: '#23347a', lineHeight: 1 }}>
-                      {progress.pb?.targets || '–'}<span style={{ fontSize: 13, color: '#a29c95' }}> / 10</span>
+                    <div style={{ fontFamily: "'Roboto Mono',monospace", fontWeight: 700, fontSize: 22, color: 'var(--driv-blue)', lineHeight: 1 }}>
+                      {progress.pb?.targets || '–'}<span style={{ fontSize: 13, color: 'var(--text-label)' }}> / 10</span>
                     </div>
-                    <div style={{ font: '500 11px Inter,sans-serif', color: '#6b6761', marginTop: 3 }}>Treff på mål</div>
+                    <div style={{ font: '500 11px Inter,sans-serif', color: 'var(--text-muted)', marginTop: 3 }}>Treff på mål</div>
                   </div>
                 </div>
               </div>
@@ -470,7 +470,7 @@ export default function App() {
 
         {/* ═══ SESSION PLAYER ═══ */}
         {view === 'session' && (
-          <div style={{ minHeight: '100vh', background: '#17001e', color: '#fff', display: 'flex', flexDirection: 'column' }}>
+          <div style={{ minHeight: '100vh', background: 'var(--text-dark)', color: '#fff', display: 'flex', flexDirection: 'column' }}>
 
             {/* header */}
             <div style={{ display: 'flex', alignItems: 'center', gap: 12, padding: '18px 18px 10px' }}>
@@ -488,7 +488,7 @@ export default function App() {
 
             {/* progress bar */}
             <div style={{ height: 6, background: 'rgba(255,255,255,0.12)', borderRadius: 9999, margin: '6px 20px 0' }}>
-              <div style={{ height: '100%', width: progressPct, background: '#ffa424', borderRadius: 9999, transition: 'width 0.35s ease' }} />
+              <div style={{ height: '100%', width: progressPct, background: 'var(--accent)', borderRadius: 9999, transition: 'width 0.35s ease' }} />
             </div>
 
             {/* scrollable body */}
@@ -528,7 +528,7 @@ export default function App() {
                     </div>
                   </div>
                   <div style={{ display: 'flex', gap: 12 }}>
-                    <button onClick={startOrPause} style={{ border: 'none', cursor: 'pointer', background: '#43c878', color: '#0c3a20', font: '700 15px Inter,sans-serif', padding: '12px 26px', borderRadius: 9999, display: 'flex', alignItems: 'center', gap: 7 }}>
+                    <button onClick={startOrPause} style={{ border: 'none', cursor: 'pointer', background: 'var(--green)', color: '#0c3a20', font: '700 15px Inter,sans-serif', padding: '12px 26px', borderRadius: 9999, display: 'flex', alignItems: 'center', gap: 7 }}>
                       <Icon name="timer" size={20} />
                       {timerRunning ? 'Pause' : timerDone ? 'Start på nytt' : 'Start'}
                     </button>
@@ -543,7 +543,7 @@ export default function App() {
                   {checklistItems.map(item => (
                     <div key={item.idx} style={{ display: 'flex', alignItems: 'center', gap: 8, padding: '4px 8px 4px 15px', borderRadius: 13, background: item.checked ? 'rgba(67,200,120,0.18)' : 'rgba(255,255,255,0.05)', border: `1px solid ${item.checked ? 'rgba(67,200,120,0.55)' : 'rgba(255,255,255,0.13)'}` }}>
                       <button onClick={() => toggleCheck(item.idx)} style={{ display: 'flex', alignItems: 'center', gap: 13, flex: 1, textAlign: 'left', background: 'transparent', border: 'none', cursor: 'pointer', padding: '9px 0' }}>
-                        <Icon name={item.checked ? 'check_circle' : 'radio_button_unchecked'} size={24} style={{ color: item.checked ? '#43c878' : 'rgba(255,255,255,0.4)' }} />
+                        <Icon name={item.checked ? 'check_circle' : 'radio_button_unchecked'} size={24} style={{ color: item.checked ? 'var(--green)' : 'rgba(255,255,255,0.4)' }} />
                         <span style={{ font: '600 15px/20px Inter,sans-serif', color: item.checked ? '#fff' : 'rgba(255,255,255,0.85)' }}>{item.label}</span>
                       </button>
                       {item.img && (
@@ -564,8 +564,8 @@ export default function App() {
                     <button onClick={() => setChallengeVal(v => Math.max(0, v - 1))} style={{ border: '1px solid rgba(255,255,255,0.22)', background: 'rgba(255,255,255,0.08)', cursor: 'pointer', width: 54, height: 54, borderRadius: 9999, display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff' }}>
                       <Icon name="remove" size={26} />
                     </button>
-                    <div style={{ fontFamily: "'Roboto Mono',monospace", fontWeight: 700, fontSize: 56, color: '#ffa424', minWidth: 96, lineHeight: 1 }}>{challengeVal}</div>
-                    <button onClick={() => setChallengeVal(v => v + 1)} style={{ border: 'none', background: '#ffa424', cursor: 'pointer', width: 54, height: 54, borderRadius: 9999, display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#17001e' }}>
+                    <div style={{ fontFamily: "'Roboto Mono',monospace", fontWeight: 700, fontSize: 56, color: 'var(--accent)', minWidth: 96, lineHeight: 1 }}>{challengeVal}</div>
+                    <button onClick={() => setChallengeVal(v => v + 1)} style={{ border: 'none', background: 'var(--accent)', cursor: 'pointer', width: 54, height: 54, borderRadius: 9999, display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--text-dark)' }}>
                       <Icon name="add" size={26} />
                     </button>
                   </div>
@@ -596,14 +596,14 @@ export default function App() {
                 </div>
               )}
 
-              <div style={{ display: 'flex', alignItems: 'center', gap: 8, color: '#ffa424', font: '600 14px Inter,sans-serif', marginTop: 2 }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: 8, color: 'var(--accent)', font: '600 14px Inter,sans-serif', marginTop: 2 }}>
                 ✨ {CHEERS[stepIndex % CHEERS.length]}
               </div>
             </div>
 
             {/* sticky footer */}
-            <div style={{ position: 'sticky', bottom: 0, background: '#17001e', borderTop: '1px solid rgba(255,255,255,0.12)', padding: '14px 20px 22px', display: 'flex', flexDirection: 'column', gap: 8 }}>
-              <button onClick={handleNext} style={{ border: 'none', cursor: 'pointer', background: '#ffa424', color: '#17001e', font: '700 17px Inter,sans-serif', padding: 16, borderRadius: 14, width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8 }}>
+            <div style={{ position: 'sticky', bottom: 0, background: 'var(--text-dark)', borderTop: '1px solid rgba(255,255,255,0.12)', padding: '14px 20px 22px', display: 'flex', flexDirection: 'column', gap: 8 }}>
+              <button onClick={handleNext} style={{ border: 'none', cursor: 'pointer', background: 'var(--accent)', color: 'var(--text-dark)', font: '700 17px Inter,sans-serif', padding: 16, borderRadius: 14, width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8 }}>
                 {isLast ? (isChallenge ? 'Lagre og fullfør' : 'Fullfør økt') : 'Neste øvelse'}
                 <Icon name="arrow_forward" size={21} />
               </button>
@@ -612,7 +612,7 @@ export default function App() {
 
             {/* video modal */}
             {videoModal && (
-              <div onClick={() => setVideoModal(null)} style={{ position: 'fixed', inset: 0, zIndex: 50, background: 'rgba(11,0,15,0.86)', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: 20 }}>
+              <div onClick={() => setVideoModal(null)} style={{ position: 'fixed', inset: 0, zIndex: 50, background: 'var(--scrim)', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: 20 }}>
                 <div style={{ width: '100%', maxWidth: 390, display: 'flex', justifyContent: 'flex-end', marginBottom: 10 }}>
                   <button onClick={() => setVideoModal(null)} style={{ border: 'none', background: 'rgba(255,255,255,0.14)', cursor: 'pointer', width: 40, height: 40, borderRadius: 9999, display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff' }}>
                     <Icon name="close" size={24} />
@@ -632,7 +632,7 @@ export default function App() {
 
             {/* image modal */}
             {imageModal && (
-              <div onClick={() => setImageModal(null)} style={{ position: 'fixed', inset: 0, zIndex: 50, background: 'rgba(11,0,15,0.9)', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: 20 }}>
+              <div onClick={() => setImageModal(null)} style={{ position: 'fixed', inset: 0, zIndex: 50, background: 'var(--scrim)', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: 20 }}>
                 <div style={{ width: '100%', maxWidth: 420, display: 'flex', justifyContent: 'flex-end', marginBottom: 10 }}>
                   <button onClick={() => setImageModal(null)} style={{ border: 'none', background: 'rgba(255,255,255,0.14)', cursor: 'pointer', width: 40, height: 40, borderRadius: 9999, display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff' }}>
                     <Icon name="close" size={24} />
@@ -648,17 +648,17 @@ export default function App() {
         {view === 'done' && (() => {
           const ld = lastDone || {};
           return (
-            <div style={{ minHeight: '100vh', background: '#ffa424', color: '#17001e', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: '36px 26px', textAlign: 'center', position: 'relative', overflow: 'hidden' }}>
+            <div style={{ minHeight: '100vh', background: 'var(--accent)', color: 'var(--text-dark)', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: '36px 26px', textAlign: 'center', position: 'relative', overflow: 'hidden' }}>
               {/* confetti */}
               <div style={{ position: 'absolute', inset: 0, pointerEvents: 'none' }}>
                 {[
                   { l: '8%',  w: 9,  h: 14, r: 2,      bg: '#fff',    d: '0s',   dur: '2.6s' },
-                  { l: '20%', w: 8,  h: 8,  r: '50%',  bg: '#c71f40', d: '0.4s', dur: '3.1s' },
-                  { l: '33%', w: 10, h: 16, r: 2,      bg: '#23347a', d: '0.9s', dur: '2.9s' },
+                  { l: '20%', w: 8,  h: 8,  r: '50%',  bg: 'var(--driv-red)', d: '0.4s', dur: '3.1s' },
+                  { l: '33%', w: 10, h: 16, r: 2,      bg: 'var(--driv-blue)', d: '0.9s', dur: '2.9s' },
                   { l: '46%', w: 8,  h: 8,  r: '50%',  bg: '#fff',    d: '0.2s', dur: '3.3s' },
                   { l: '58%', w: 9,  h: 14, r: 2,      bg: '#ffd23f', d: '1.1s', dur: '2.7s' },
-                  { l: '70%', w: 8,  h: 8,  r: '50%',  bg: '#c71f40', d: '0.6s', dur: '3.0s' },
-                  { l: '82%', w: 10, h: 15, r: 2,      bg: '#23347a', d: '0.1s', dur: '2.8s' },
+                  { l: '70%', w: 8,  h: 8,  r: '50%',  bg: 'var(--driv-red)', d: '0.6s', dur: '3.0s' },
+                  { l: '82%', w: 10, h: 15, r: 2,      bg: 'var(--driv-blue)', d: '0.1s', dur: '2.8s' },
                   { l: '92%', w: 8,  h: 8,  r: '50%',  bg: '#fff',    d: '0.8s', dur: '3.2s' },
                   { l: '14%', w: 8,  h: 12, r: 2,      bg: '#ffd23f', d: '1.4s', dur: '3.0s' },
                   { l: '64%', w: 8,  h: 12, r: 2,      bg: '#fff',    d: '1.7s', dur: '2.9s' },
@@ -668,37 +668,37 @@ export default function App() {
               </div>
 
               <div style={{ position: 'relative', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-                <div style={{ width: 104, height: 104, borderRadius: 9999, background: '#17001e', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 56, boxShadow: '0 6px 20px rgba(0,0,0,0.15)', animation: 'j13pop 0.5s ease-out both' }}>🏆</div>
-                <div style={{ fontFamily: "'Inter',sans-serif", fontWeight: 800, fontSize: 40, lineHeight: 1, color: '#17001e', marginTop: 18, letterSpacing: '-0.02em' }}>{ld.headline || 'Bra jobba!'}</div>
-                <div style={{ font: '500 16px/22px Inter,sans-serif', color: '#17001e', opacity: 0.9, marginTop: 8, maxWidth: 280 }}>Du fullførte «{ld.title}»</div>
+                <div style={{ width: 104, height: 104, borderRadius: 9999, background: 'var(--text-dark)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 56, boxShadow: '0 6px 20px rgba(0,0,0,0.15)', animation: 'j13pop 0.5s ease-out both' }}>🏆</div>
+                <div style={{ fontFamily: "'Inter',sans-serif", fontWeight: 800, fontSize: 40, lineHeight: 1, color: 'var(--text-dark)', marginTop: 18, letterSpacing: '-0.02em' }}>{ld.headline || 'Bra jobba!'}</div>
+                <div style={{ font: '500 16px/22px Inter,sans-serif', color: 'var(--text-dark)', opacity: 0.9, marginTop: 8, maxWidth: 280 }}>Du fullførte «{ld.title}»</div>
 
                 <div style={{ display: 'flex', gap: 12, marginTop: 26 }}>
                   <div style={{ background: '#fff', borderRadius: 16, padding: '14px 20px', minWidth: 104 }}>
                     <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 5 }}>
                       <span style={{ fontSize: 20 }}>🔥</span>
-                      <span style={{ fontFamily: "'Roboto Mono',monospace", fontWeight: 700, fontSize: 26, color: '#23347a' }}>{ld.streak}</span>
+                      <span style={{ fontFamily: "'Roboto Mono',monospace", fontWeight: 700, fontSize: 26, color: 'var(--driv-blue)' }}>{ld.streak}</span>
                     </div>
-                    <div style={{ font: '600 11px Inter,sans-serif', color: '#6b6761', marginTop: 4 }}>økter på rad</div>
+                    <div style={{ font: '600 11px Inter,sans-serif', color: 'var(--text-muted)', marginTop: 4 }}>økter på rad</div>
                   </div>
                   <div style={{ background: '#fff', borderRadius: 16, padding: '14px 20px', minWidth: 104, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
                     <span style={{ fontSize: 24 }}>✅</span>
-                    <div style={{ font: '600 11px Inter,sans-serif', color: '#6b6761', marginTop: 5 }}>{ld.kind}</div>
+                    <div style={{ font: '600 11px Inter,sans-serif', color: 'var(--text-muted)', marginTop: 5 }}>{ld.kind}</div>
                   </div>
                 </div>
 
                 {ld.record && (
-                  <div style={{ display: 'inline-flex', alignItems: 'center', gap: 7, marginTop: 16, background: '#17001e', color: '#fff', borderRadius: 9999, padding: '9px 16px', font: '700 14px Inter,sans-serif', animation: 'j13pulse 1.6s ease-in-out infinite' }}>
+                  <div style={{ display: 'inline-flex', alignItems: 'center', gap: 7, marginTop: 16, background: 'var(--text-dark)', color: '#fff', borderRadius: 9999, padding: '9px 16px', font: '700 14px Inter,sans-serif', animation: 'j13pulse 1.6s ease-in-out infinite' }}>
                     📈 {ld.recordText}
                   </div>
                 )}
 
                 {ld.newBadge && (
-                  <div style={{ display: 'inline-flex', alignItems: 'center', gap: 8, marginTop: 14, background: 'rgba(255,255,255,0.2)', color: '#17001e', border: '1px dashed rgba(23,0,30,0.35)', borderRadius: 9999, padding: '9px 16px', font: '600 14px Inter,sans-serif' }}>
+                  <div style={{ display: 'inline-flex', alignItems: 'center', gap: 8, marginTop: 14, background: 'rgba(255,255,255,0.2)', color: 'var(--text-dark)', border: '1px dashed rgba(23,0,30,0.35)', borderRadius: 9999, padding: '9px 16px', font: '600 14px Inter,sans-serif' }}>
                     🏅 Nytt merke: {ld.newBadge}
                   </div>
                 )}
 
-                <button onClick={() => setView('home')} style={{ border: 'none', cursor: 'pointer', background: '#17001e', color: '#fff', font: '700 16px Inter,sans-serif', padding: '15px 30px', borderRadius: 14, marginTop: 30 }}>
+                <button onClick={() => setView('home')} style={{ border: 'none', cursor: 'pointer', background: 'var(--text-dark)', color: '#fff', font: '700 16px Inter,sans-serif', padding: '15px 30px', borderRadius: 14, marginTop: 30 }}>
                   Tilbake til uka
                 </button>
               </div>

@@ -1,5 +1,50 @@
+:root {
+  /* ---- Bakgrunner / nøytraler ---- */
+  --bg-side:          #e7e3da;
+  --bg-app:           #fbf8f3;
+  --card:             #ffffff;
+  --border:           #c3bdb6;
+  --hairline:         #eae5dc;
+
+  /* ---- Tekst ---- */
+  --text-dark:        #17001e;
+  --text-muted:       #6b6761;
+  --text-label:       #a29c95;
+
+  /* ---- Driv klubbfarger ---- */
+  --driv-blue:        #23347a;
+  --driv-red:         #c71f40;
+
+  /* ---- Aksent / handling (gul) ---- */
+  --accent:           #ffa424;
+  --accent-hover:     #ff8c1a;
+  --accent-pressed:   #f07c00;
+
+  /* ---- Status: fullført / grønn ---- */
+  --green:            #43c878;
+  --green-bg:         #e3f2db;
+  --green-text:       #19430a;
+  --celebrate:        #1f9d57;
+
+  /* ---- Merker / rekorder ---- */
+  --purple:           #7732b9;
+  --purple-tint:      #ebe0f5;
+  --badge-bg:         #fff8e9;
+  --badge-border:     #ffe5b9;
+  --badge-locked-bg:  #f3eee6;
+  --badge-locked-bd:  #e6e0d7;
+  --red:              #e02e04;
+
+  /* ---- Sommer-kort ---- */
+  --summer-bg:        #fff4e0;
+  --summer-border:    #ffe1ad;
+
+  /* ---- Overlay ---- */
+  --scrim:            rgba(11, 0, 15, 0.86);
+}
+
 * { box-sizing: border-box; }
-html, body { margin: 0; padding: 0; background: #e5dff5; font-family: 'Inter', -apple-system, sans-serif; }
+html, body { margin: 0; padding: 0; background: var(--bg-side); font-family: 'Inter', -apple-system, sans-serif; }
 ::-webkit-scrollbar { width: 0; height: 0; }
 
 @keyframes j13fall {
