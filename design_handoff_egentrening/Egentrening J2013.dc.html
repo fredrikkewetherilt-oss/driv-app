@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="ext-resource-dependency" content="assets/ovelser/kneboy.jpg">
+<meta name="ext-resource-dependency" content="assets/ovelser/utfall.jpg">
+<meta name="ext-resource-dependency" content="assets/ovelser/pushups.jpg">
+<meta name="ext-resource-dependency" content="assets/ovelser/situps.jpg">
+<meta name="ext-resource-dependency" content="assets/ovelser/rygghev.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,1,0&display=block" rel="stylesheet">
+<style>
+@font-face { font-family:"Copernicus"; font-weight:700; font-display:swap; src:url("fonts/Copernicus-Bold.otf") format("opentype"); }
+@font-face { font-family:"Inter"; font-weight:400; font-display:swap; src:url("fonts/Oda-Inter-Regular.otf") format("opentype"); }
+@font-face { font-family:"Inter"; font-weight:500; font-display:swap; src:url("fonts/Oda-Inter-Medium.otf") format("opentype"); }
+@font-face { font-family:"Inter"; font-weight:600; font-display:swap; src:url("fonts/Oda-Inter-SemiBold.otf") format("opentype"); }
+@font-face { font-family:"Inter"; font-weight:700; font-display:swap; src:url("fonts/Oda-Inter-Bold.otf") format("opentype"); }
+* { box-sizing:border-box; }
+html, body { margin:0; padding:0; background:#e7e3da; }
+::-webkit-scrollbar { width:0; height:0; }
+@keyframes j13fall { 0% { transform:translateY(-30px) rotate(0deg); opacity:1; } 100% { transform:translateY(640px) rotate(560deg); opacity:0; } }
+@keyframes j13pop { 0% { transform:scale(0.6); opacity:0; } 60% { transform:scale(1.08); } 100% { transform:scale(1); opacity:1; } }
+@keyframes j13pulse { 0%,100% { transform:scale(1); } 50% { transform:scale(1.04); } }
+</style>
+</helmet>
+
+<template id="__bundler_thumbnail">
+<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+  <rect width="100" height="100" rx="22" fill="#23347a"></rect>
+  <circle cx="50" cy="50" r="20" fill="#ffffff"></circle>
+  <circle cx="50" cy="50" r="6" fill="#23347a"></circle>
+  <circle cx="50" cy="32" r="3.6" fill="#c71f40"></circle>
+  <circle cx="65" cy="56" r="3.6" fill="#1f9d57"></circle>
+  <circle cx="37" cy="58" r="3.6" fill="#c71f40"></circle>
+</svg>
+</template>
+
+<div style="min-height:100vh; background:#e7e3da; display:flex; justify-content:center; font-family:'Inter',-apple-system,sans-serif;">
+<div style="width:100%; max-width:430px; min-height:100vh; position:relative; background:#fbf8f3; overflow:hidden; box-shadow:0 0 60px rgba(35,52,122,0.12);">
+
+<!-- ============ NAME ============ -->
+<sc-if value="{{ isName }}" hint-placeholder-val="{{ false }}">
+<div style="min-height:100vh; background:#23347a; display:flex; flex-direction:column; align-items:center; justify-content:center; padding:32px 30px; text-align:center;">
+  <div style="width:72px; height:72px; border-radius:20px; background:#ffffff; display:flex; align-items:center; justify-content:center; box-shadow:0 4px 16px rgba(0,0,0,0.22);"><img src="assets/driv-logo.png" alt="Driv Fotball" style="width:54px; height:auto; display:block;"></div>
+  <div style="font-family:'Copernicus',Georgia,serif; font-weight:700; font-size:30px; color:#ffffff; margin-top:22px; letter-spacing:-0.01em;">Velkommen!</div>
+  <div style="font:400 15px/22px 'Inter'; color:rgba(255,255,255,0.8); margin-top:10px; max-width:280px;">Skriv inn fornavnet ditt, så heier vi på deg gjennom hver økt.</div>
+  <input value="{{ nameInput }}" onChange="{{ onNameInput }}" onKeyDown="{{ onNameKey }}" placeholder="Fornavnet ditt" style="width:100%; max-width:300px; margin-top:24px; padding:15px 18px; border:none; border-radius:14px; background:#ffffff; color:#23347a; font:600 17px 'Inter'; text-align:center; outline:none;">
+  <button onClick="{{ setName }}" style="width:100%; max-width:300px; margin-top:14px; border:none; cursor:pointer; background:#c71f40; color:#ffffff; font:700 17px 'Inter'; padding:16px; border-radius:14px;">Kom i gang ⚽</button>
+  <button onClick="{{ setName }}" style="margin-top:12px; border:none; background:transparent; cursor:pointer; color:rgba(255,255,255,0.55); font:600 14px 'Inter';">Hopp over</button>
+</div>
+</sc-if>
+
+<!-- ============ HOME ============ -->
+<sc-if value="{{ isHome }}" hint-placeholder-val="{{ true }}">
+<div style="min-height:100vh; background:#fbf8f3; padding-bottom:36px;">
+
+  <!-- navy header band -->
+  <div style="background:#23347a; padding:20px 20px 42px;">
+    <div style="display:flex; align-items:center; justify-content:space-between;">
+      <div style="display:flex; align-items:center; gap:13px;">
+        <div style="flex:none; width:50px; height:50px; border-radius:14px; background:#ffffff; display:flex; align-items:center; justify-content:center; box-shadow:0 2px 8px rgba(0,0,0,0.18);"><img src="assets/driv-logo.png" alt="Driv Fotball" style="width:38px; height:auto; display:block;"></div>
+        <div>
+          <div style="font-family:'Copernicus',Georgia,serif; font-weight:700; font-size:24px; line-height:1; color:#ffffff; letter-spacing:-0.01em;">Egentrening</div>
+          <div style="font:600 12px/1 'Inter'; color:rgba(255,255,255,0.7); margin-top:6px; letter-spacing:0.03em;">Driv Fotball · Jenter 2013</div>
+        </div>
+      </div>
+      <button onClick="{{ editName }}" style="border:none; background:rgba(255,255,255,0.12); cursor:pointer; width:38px; height:38px; border-radius:9999px; display:flex; align-items:center; justify-content:center; color:#ffffff; font-family:'Material Symbols Rounded'; font-size:20px;">edit</button>
+    </div>
+    <div style="display:flex; align-items:center; gap:2px; background:rgba(255,255,255,0.12); border:1px solid rgba(255,255,255,0.22); border-radius:9999px; padding:4px; margin-top:18px; width:fit-content;">
+      <button onClick="{{ prevWeek }}" style="border:none; background:transparent; cursor:pointer; width:30px; height:30px; border-radius:9999px; display:flex; align-items:center; justify-content:center; color:#ffffff; font-family:'Material Symbols Rounded'; font-size:20px;">chevron_left</button>
+      <span style="font:700 13px 'Inter'; color:#ffffff; min-width:48px; text-align:center;">{{ weekLabel }}</span>
+      <button onClick="{{ nextWeek }}" style="border:none; background:transparent; cursor:pointer; width:30px; height:30px; border-radius:9999px; display:flex; align-items:center; justify-content:center; color:#ffffff; font-family:'Material Symbols Rounded'; font-size:20px;">chevron_right</button>
+    </div>
+  </div>
+
+  <!-- green streak hero (overlaps band) -->
+  <div style="margin:-26px 20px 0; background:#1f9d57; border-radius:20px; padding:17px 20px; display:flex; align-items:center; justify-content:space-between; color:#ffffff; box-shadow:0 8px 22px rgba(31,157,87,0.28);">
+    <div style="display:flex; align-items:center; gap:14px;">
+      <div style="width:50px; height:50px; border-radius:9999px; background:rgba(255,255,255,0.18); display:flex; align-items:center; justify-content:center; font-size:27px; line-height:1;">🔥</div>
+      <div>
+        <div style="display:flex; align-items:baseline; gap:6px;"><span style="font-family:'Roboto Mono',monospace; font-weight:700; font-size:30px; color:#ffffff;">{{ streak }}</span><span style="font:600 14px 'Inter'; color:rgba(255,255,255,0.85);">på rad</span></div>
+        <div style="font:600 12px/16px 'Inter'; color:rgba(255,255,255,0.8); margin-top:1px;">{{ greeting }}</div>
+      </div>
+    </div>
+    <div style="text-align:center; padding-left:14px; border-left:1px solid rgba(255,255,255,0.25);">
+      <div style="font-family:'Roboto Mono',monospace; font-weight:700; font-size:20px; color:#ffffff;">{{ weekDoneLabel }}</div>
+      <div style="font:600 11px 'Inter'; color:rgba(255,255,255,0.8);">denne uka</div>
+    </div>
+  </div>
+
+  <!-- summer note -->
+  <div style="margin:16px 20px 0; background:#fff4e0; border:1px solid #ffe1ad; border-radius:18px; padding:14px 16px; display:flex; align-items:flex-start; gap:13px;">
+    <div style="flex:none; width:42px; height:42px; border-radius:12px; background:#ffffff; display:flex; align-items:center; justify-content:center; font-size:24px; line-height:1;">☀️</div>
+    <div>
+      <div style="font:700 14px 'Inter'; color:#23347a;">{{ summerTitle }}</div>
+      <div style="font:400 13px/19px 'Inter'; color:#6b6761; margin-top:3px;">{{ summerBody }}</div>
+    </div>
+  </div>
+
+  <!-- sessions -->
+  <div style="padding:0 20px; margin-top:24px;">
+    <div style="font:700 11px 'Inter'; letter-spacing:0.08em; text-transform:uppercase; color:#a29c95; margin-bottom:12px;">Øktene denne uka</div>
+    <div style="display:flex; flex-direction:column; gap:12px;">
+      <sc-for list="{{ sessions }}" as="s" hint-placeholder-count="2">
+        <button onClick="{{ s.open }}" style="display:flex; align-items:center; gap:14px; width:100%; text-align:left; background:#ffffff; border:1px solid #c3bdb6; border-radius:18px; padding:14px; cursor:pointer; box-shadow:0 2px 12px rgba(35,52,122,0.06);">
+          <div style="flex:none; width:58px; height:58px; border-radius:16px; background:{{ s.tint }}; display:flex; align-items:center; justify-content:center; font-size:30px; line-height:1;">{{ s.icon }}</div>
+          <div style="flex:1; min-width:0;">
+            <div style="font:700 10px 'Inter'; letter-spacing:0.07em; text-transform:uppercase; color:#a29c95;">{{ s.label }}</div>
+            <div style="font:700 17px/22px 'Inter'; color:#23347a; margin-top:3px;">{{ s.title }}</div>
+            <div style="display:flex; align-items:center; gap:10px; margin-top:5px; color:#6b6761;">
+              <span style="display:inline-flex; align-items:center; gap:4px; font:500 12px 'Inter';"><span style="font-family:'Material Symbols Rounded'; font-size:15px;">schedule</span>{{ s.dur }}</span>
+              <span style="display:inline-flex; align-items:center; gap:4px; font:500 12px 'Inter';"><span style="font-family:'Material Symbols Rounded'; font-size:15px;">format_list_numbered</span>{{ s.stepsLabel }}</span>
+            </div>
+          </div>
+          <sc-if value="{{ s.done }}" hint-placeholder-val="{{ false }}">
+            <div style="flex:none; display:flex; align-items:center; gap:5px; background:#e3f4ea; color:#167a41; border-radius:9999px; padding:6px 11px 6px 8px; font:600 12px 'Inter';"><span style="font-family:'Material Symbols Rounded'; font-size:18px;">check_circle</span>Gjort</div>
+          </sc-if>
+          <sc-if value="{{ s.notDone }}" hint-placeholder-val="{{ true }}">
+            <div style="flex:none; width:40px; height:40px; border-radius:9999px; background:#c71f40; display:flex; align-items:center; justify-content:center; color:#ffffff; font-family:'Material Symbols Rounded'; font-size:23px;">play_arrow</div>
+          </sc-if>
+        </button>
+      </sc-for>
+    </div>
+  </div>
+
+  <!-- badges -->
+  <div style="margin-top:26px;">
+    <div style="font:700 11px 'Inter'; letter-spacing:0.08em; text-transform:uppercase; color:#a29c95; padding:0 20px; margin-bottom:12px;">Merker du har samlet</div>
+    <div style="display:flex; gap:12px; overflow-x:auto; padding:2px 20px 6px;">
+      <sc-for list="{{ badges }}" as="b" hint-placeholder-count="6">
+        <div style="flex:none; width:76px; text-align:center;">
+          <div style="width:64px; height:64px; border-radius:9999px; margin:0 auto; display:flex; align-items:center; justify-content:center; background:{{ b.bg }}; border:1px solid {{ b.border }}; font-size:29px; line-height:1; filter:{{ b.filter }};">{{ b.icon }}</div>
+          <div style="font:600 11px/14px 'Inter'; color:{{ b.labelColor }}; margin-top:7px;">{{ b.name }}</div>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+
+  <!-- records -->
+  <div style="margin:24px 20px 0;">
+    <div style="font:700 11px 'Inter'; letter-spacing:0.08em; text-transform:uppercase; color:#a29c95; margin-bottom:12px;">Dine rekorder</div>
+    <div style="background:#ffffff; border:1px solid #c3bdb6; border-radius:16px; padding:6px; display:flex;">
+      <div style="flex:1; display:flex; align-items:center; gap:11px; padding:12px;">
+        <div style="flex:none; width:42px; height:42px; border-radius:12px; background:#e7ebf6; display:flex; align-items:center; justify-content:center; font-size:22px; line-height:1;">⚽</div>
+        <div><div style="font-family:'Roboto Mono',monospace; font-weight:700; font-size:22px; color:#23347a; line-height:1;">{{ pbTouches }}</div><div style="font:500 11px 'Inter'; color:#6b6761; margin-top:3px;">Berøringer / min</div></div>
+      </div>
+      <div style="width:1px; background:#eae5dc; margin:8px 0;"></div>
+      <div style="flex:1; display:flex; align-items:center; gap:11px; padding:12px;">
+        <div style="flex:none; width:42px; height:42px; border-radius:12px; background:#fbe3e8; display:flex; align-items:center; justify-content:center; font-size:22px; line-height:1;">🎯</div>
+        <div><div style="font-family:'Roboto Mono',monospace; font-weight:700; font-size:22px; color:#23347a; line-height:1;">{{ pbTargets }}<span style="font-size:13px; color:#a29c95;"> / 10</span></div><div style="font:500 11px 'Inter'; color:#6b6761; margin-top:3px;">Treff på mål</div></div>
+      </div>
+    </div>
+  </div>
+
+</div>
+</sc-if>
+
+<!-- ============ SESSION PLAYER ============ -->
+<sc-if value="{{ isSession }}" hint-placeholder-val="{{ false }}">
+<div style="min-height:100vh; background:#23347a; color:#ffffff; display:flex; flex-direction:column;">
+
+  <div style="display:flex; align-items:center; gap:12px; padding:18px 18px 10px;">
+    <button onClick="{{ goBack }}" style="border:none; background:rgba(255,255,255,0.1); cursor:pointer; width:38px; height:38px; border-radius:9999px; display:flex; align-items:center; justify-content:center; color:#ffffff; font-family:'Material Symbols Rounded'; font-size:22px;">arrow_back</button>
+    <div style="flex:1; text-align:center;">
+      <div style="font:700 10px 'Inter'; letter-spacing:0.1em; text-transform:uppercase; color:rgba(255,255,255,0.6);">{{ sKind }}</div>
+      <div style="font:600 14px 'Inter'; color:#ffffff; margin-top:2px;">Steg {{ stepNum }} av {{ stepTotal }}</div>
+    </div>
+    <button onClick="{{ closePlayer }}" style="border:none; background:rgba(255,255,255,0.1); cursor:pointer; width:38px; height:38px; border-radius:9999px; display:flex; align-items:center; justify-content:center; color:#ffffff; font-family:'Material Symbols Rounded'; font-size:22px;">close</button>
+  </div>
+
+  <div style="height:6px; background:rgba(255,255,255,0.14); border-radius:9999px; margin:6px 20px 0;">
+    <div style="height:100%; width:{{ progressPct }}; background:#43c878; border-radius:9999px; transition:width 0.35s ease;"></div>
+  </div>
+
+  <div style="flex:1; padding:24px 20px 12px; display:flex; flex-direction:column; gap:18px;">
+    <div>
+      <div style="font-family:'Copernicus',Georgia,serif; font-weight:700; font-size:28px; line-height:1.1; color:#ffffff; letter-spacing:-0.01em;">{{ stepName }}</div>
+      <div style="font:400 15px/22px 'Inter'; color:rgba(255,255,255,0.72); margin-top:6px;">{{ stepDetail }}</div>
+    </div>
+
+    <sc-if value="{{ hasVideos }}" hint-placeholder-val="{{ false }}">
+      <div>
+        <div style="font:700 10px 'Inter'; letter-spacing:0.09em; text-transform:uppercase; color:rgba(255,255,255,0.5); margin:-4px 0 9px;">🎬 Se hvordan</div>
+        <div style="display:flex; flex-wrap:wrap; gap:8px;">
+          <sc-for list="{{ stepVideos }}" as="v" hint-placeholder-count="1">
+            <sc-if value="{{ v.isEmbed }}" hint-placeholder-val="{{ false }}">
+              <button onClick="{{ v.open }}" style="display:inline-flex; align-items:center; gap:7px; cursor:pointer; padding:9px 14px; border-radius:9999px; background:rgba(255,255,255,0.12); border:1px solid rgba(255,255,255,0.24); color:#ffffff; font:600 13px 'Inter';">🎬 {{ v.label }}</button>
+            </sc-if>
+            <sc-if value="{{ v.isLink }}" hint-placeholder-val="{{ true }}">
+              <a href="{{ v.url }}" target="_blank" rel="noopener noreferrer" style="display:inline-flex; align-items:center; gap:7px; text-decoration:none; padding:9px 14px; border-radius:9999px; background:rgba(255,255,255,0.12); border:1px solid rgba(255,255,255,0.24); color:#ffffff; font:600 13px 'Inter';">🎬 {{ v.label }}</a>
+            </sc-if>
+          </sc-for>
+        </div>
+      </div>
+    </sc-if>
+
+    <!-- timer -->
+    <sc-if value="{{ showTimer }}" hint-placeholder-val="{{ false }}">
+      <div style="display:flex; flex-direction:column; align-items:center; gap:18px; padding:4px 0;">
+        <div style="position:relative; width:172px; height:172px;">
+          <svg width="172" height="172" viewBox="0 0 120 120" style="transform:rotate(-90deg);">
+            <circle cx="60" cy="60" r="52" fill="none" stroke="rgba(255,255,255,0.14)" stroke-width="9"></circle>
+            <circle cx="60" cy="60" r="52" fill="none" stroke="#43c878" stroke-width="9" stroke-linecap="round" stroke-dasharray="326.73" stroke-dashoffset="{{ timerOffset }}" style="transition:stroke-dashoffset 1s linear;"></circle>
+          </svg>
+          <div style="position:absolute; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center;">
+            <div style="font-family:'Roboto Mono',monospace; font-weight:700; font-size:38px; color:#ffffff; letter-spacing:-0.02em;">{{ timerDisplay }}</div>
+            <div style="font:500 12px 'Inter'; color:rgba(255,255,255,0.6); margin-top:2px;">{{ timerStateLabel }}</div>
+          </div>
+        </div>
+        <div style="display:flex; gap:12px;">
+          <button onClick="{{ startOrPause }}" style="border:none; cursor:pointer; background:#43c878; color:#0c3a20; font:700 15px 'Inter'; padding:12px 26px; border-radius:9999px; display:flex; align-items:center; gap:7px;"><span style="font-family:'Material Symbols Rounded'; font-size:20px;">timer</span>{{ timerBtnLabel }}</button>
+          <button onClick="{{ resetTimer }}" style="border:1px solid rgba(255,255,255,0.22); cursor:pointer; background:rgba(255,255,255,0.08); color:#ffffff; font:600 15px 'Inter'; padding:12px 20px; border-radius:9999px;">Nullstill</button>
+        </div>
+      </div>
+    </sc-if>
+
+    <!-- checklist -->
+    <sc-if value="{{ isChecklist }}" hint-placeholder-val="{{ false }}">
+      <div style="display:flex; flex-direction:column; gap:10px;">
+        <sc-for list="{{ items }}" as="it" hint-placeholder-count="6">
+          <div style="display:flex; align-items:center; gap:8px; padding:4px 8px 4px 15px; border-radius:13px; background:{{ it.bg }}; border:1px solid {{ it.border }};">
+            <button onClick="{{ it.onToggle }}" style="display:flex; align-items:center; gap:13px; flex:1; min-width:0; text-align:left; background:transparent; border:none; cursor:pointer; padding:9px 0;">
+              <span style="font-family:'Material Symbols Rounded'; font-size:24px; color:{{ it.check }};">{{ it.icon }}</span>
+              <span style="font:600 15px/20px 'Inter'; color:{{ it.text }};">{{ it.label }}</span>
+            </button>
+            <sc-if value="{{ it.hasVideo }}" hint-placeholder-val="{{ false }}">
+              <a href="{{ it.videoUrl }}" target="_blank" rel="noopener noreferrer" style="flex:none; display:inline-flex; align-items:center; gap:5px; text-decoration:none; padding:7px 11px; border-radius:9999px; background:rgba(255,255,255,0.1); border:1px solid rgba(255,255,255,0.2); color:#ffffff; font:600 12px 'Inter';">🎬 Video</a>
+            </sc-if>
+            <sc-if value="{{ it.hasImg }}" hint-placeholder-val="{{ true }}">
+              <button onClick="{{ it.openImg }}" style="flex:none; width:42px; height:52px; padding:0; border-radius:9px; overflow:hidden; cursor:pointer; border:1px solid rgba(255,255,255,0.25); background:rgba(255,255,255,0.06);">{{ it.thumbEl }}</button>
+            </sc-if>
+          </div>
+        </sc-for>
+      </div>
+    </sc-if>
+
+    <!-- challenge -->
+    <sc-if value="{{ isChallenge }}" hint-placeholder-val="{{ false }}">
+      <div style="background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.14); border-radius:18px; padding:20px; text-align:center;">
+        <div style="font:600 14px 'Inter'; color:rgba(255,255,255,0.78);">{{ chPrompt }}</div>
+        <div style="display:flex; align-items:center; justify-content:center; gap:22px; margin:14px 0 6px;">
+          <button onClick="{{ decCh }}" style="border:1px solid rgba(255,255,255,0.22); background:rgba(255,255,255,0.08); cursor:pointer; width:54px; height:54px; border-radius:9999px; display:flex; align-items:center; justify-content:center; color:#ffffff; font-family:'Material Symbols Rounded'; font-size:26px;">remove</button>
+          <div style="font-family:'Roboto Mono',monospace; font-weight:700; font-size:56px; color:#43c878; min-width:96px; line-height:1;">{{ chValue }}</div>
+          <button onClick="{{ incCh }}" style="border:none; background:#43c878; cursor:pointer; width:54px; height:54px; border-radius:9999px; display:flex; align-items:center; justify-content:center; color:#0c3a20; font-family:'Material Symbols Rounded'; font-size:26px;">add</button>
+        </div>
+        <div style="font:500 13px 'Inter'; color:rgba(255,255,255,0.6);">{{ chUnit }}</div>
+        <div style="display:inline-flex; align-items:center; gap:6px; margin-top:14px; background:rgba(67,200,120,0.18); color:#7ce6a6; border-radius:9999px; padding:6px 13px; font:600 13px 'Inter';">🏆 Din rekord: {{ chPrevBest }}</div>
+      </div>
+    </sc-if>
+
+    <!-- plain do -->
+    <sc-if value="{{ isPlainDo }}" hint-placeholder-val="{{ false }}">
+      <div style="display:flex; flex-direction:column; align-items:center; gap:14px; padding:10px 0;">
+        <div style="width:128px; height:128px; border-radius:9999px; background:rgba(67,200,120,0.16); border:2px solid rgba(67,200,120,0.42); display:flex; align-items:center; justify-content:center; font-size:60px; line-height:1;">{{ sIcon }}</div>
+        <div style="font:400 14px/20px 'Inter'; color:rgba(255,255,255,0.65); text-align:center; max-width:260px;">Gjør øvelsen i ditt eget tempo, og trykk «Ferdig» når du er klar.</div>
+      </div>
+    </sc-if>
+
+    <!-- tips -->
+    <sc-if value="{{ hasBullets }}" hint-placeholder-val="{{ false }}">
+      <div>
+        <div style="font:700 10px 'Inter'; letter-spacing:0.09em; text-transform:uppercase; color:rgba(255,255,255,0.5); margin-bottom:9px;">Slik gjør du</div>
+        <div style="display:flex; flex-wrap:wrap; gap:8px;">
+          <sc-for list="{{ stepBullets }}" as="b" hint-placeholder-count="3">
+            <span style="padding:8px 13px; border-radius:9999px; background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.16); font:500 13px 'Inter'; color:rgba(255,255,255,0.9);">{{ b }}</span>
+          </sc-for>
+        </div>
+      </div>
+    </sc-if>
+
+    <div style="display:flex; align-items:center; gap:8px; color:#7ce6a6; font:600 14px 'Inter'; margin-top:2px;">✨ {{ cheer }}</div>
+  </div>
+
+  <!-- cta -->
+  <div style="position:sticky; bottom:0; background:#23347a; border-top:1px solid rgba(255,255,255,0.12); padding:14px 20px 22px; display:flex; flex-direction:column; gap:8px;">
+    <button onClick="{{ next }}" style="border:none; cursor:pointer; background:#c71f40; color:#ffffff; font:700 17px 'Inter'; padding:16px; border-radius:14px; width:100%; display:flex; align-items:center; justify-content:center; gap:8px;">{{ nextLabel }}<span style="font-family:'Material Symbols Rounded'; font-size:21px;">arrow_forward</span></button>
+    <button onClick="{{ skip }}" style="border:none; cursor:pointer; background:transparent; color:rgba(255,255,255,0.55); font:600 14px 'Inter'; padding:6px;">Hopp over</button>
+  </div>
+
+  <sc-if value="{{ showVideoModal }}" hint-placeholder-val="{{ false }}">
+    <div onClick="{{ closeVideo }}" style="position:fixed; inset:0; z-index:50; background:rgba(11,0,15,0.86); display:flex; flex-direction:column; align-items:center; justify-content:center; padding:20px;">
+      <div style="width:100%; max-width:390px; display:flex; justify-content:flex-end; margin-bottom:10px;">
+        <button onClick="{{ closeVideo }}" style="border:none; background:rgba(255,255,255,0.14); cursor:pointer; width:40px; height:40px; border-radius:9999px; display:flex; align-items:center; justify-content:center; color:#ffffff; font-family:'Material Symbols Rounded'; font-size:24px;">close</button>
+      </div>
+      <div style="width:100%; max-width:390px; aspect-ratio:9 / 16; max-height:74vh; border-radius:18px; overflow:hidden; background:#000000; box-shadow:0 12px 48px rgba(0,0,0,0.5);">
+        <iframe src="{{ videoEmbedUrl }}" title="Video" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen style="width:100%; height:100%; border:0; display:block;"></iframe>
+      </div>
+    </div>
+  </sc-if>
+
+  <!-- image modal -->
+  <sc-if value="{{ showImageModal }}" hint-placeholder-val="{{ false }}">
+    <div onClick="{{ closeImage }}" style="position:fixed; inset:0; z-index:50; background:rgba(11,0,15,0.9); display:flex; flex-direction:column; align-items:center; justify-content:center; padding:20px;">
+      <div style="width:100%; max-width:420px; display:flex; justify-content:flex-end; margin-bottom:10px;">
+        <button onClick="{{ closeImage }}" style="border:none; background:rgba(255,255,255,0.14); cursor:pointer; width:40px; height:40px; border-radius:9999px; display:flex; align-items:center; justify-content:center; color:#ffffff; font-family:'Material Symbols Rounded'; font-size:24px;">close</button>
+      </div>
+      {{ imageModalEl }}
+    </div>
+  </sc-if>
+
+</div>
+</sc-if>
+
+<!-- ============ DONE ============ -->
+<sc-if value="{{ isDone }}" hint-placeholder-val="{{ false }}">
+<div style="min-height:100vh; background:#1f9d57; color:#ffffff; display:flex; flex-direction:column; align-items:center; justify-content:center; padding:36px 26px; text-align:center; position:relative; overflow:hidden;">
+
+  <div style="position:absolute; inset:0; pointer-events:none;">
+    <span style="position:absolute; left:8%;  top:0; width:9px; height:14px; background:#ffffff; border-radius:2px; animation:j13fall 2.6s ease-in 0s infinite;"></span>
+    <span style="position:absolute; left:20%; top:0; width:8px; height:8px;  background:#c71f40; border-radius:9999px; animation:j13fall 3.1s ease-in 0.4s infinite;"></span>
+    <span style="position:absolute; left:33%; top:0; width:10px; height:16px; background:#23347a; border-radius:2px; animation:j13fall 2.9s ease-in 0.9s infinite;"></span>
+    <span style="position:absolute; left:46%; top:0; width:8px; height:8px;  background:#ffffff; border-radius:9999px; animation:j13fall 3.3s ease-in 0.2s infinite;"></span>
+    <span style="position:absolute; left:58%; top:0; width:9px; height:14px; background:#ffd23f; border-radius:2px; animation:j13fall 2.7s ease-in 1.1s infinite;"></span>
+    <span style="position:absolute; left:70%; top:0; width:8px; height:8px;  background:#c71f40; border-radius:9999px; animation:j13fall 3.0s ease-in 0.6s infinite;"></span>
+    <span style="position:absolute; left:82%; top:0; width:10px; height:15px; background:#23347a; border-radius:2px; animation:j13fall 2.8s ease-in 0.1s infinite;"></span>
+    <span style="position:absolute; left:92%; top:0; width:8px; height:8px;  background:#ffffff; border-radius:9999px; animation:j13fall 3.2s ease-in 0.8s infinite;"></span>
+    <span style="position:absolute; left:14%; top:0; width:8px; height:12px; background:#ffd23f; border-radius:2px; animation:j13fall 3.0s ease-in 1.4s infinite;"></span>
+    <span style="position:absolute; left:64%; top:0; width:8px; height:12px; background:#ffffff; border-radius:2px; animation:j13fall 2.9s ease-in 1.7s infinite;"></span>
+  </div>
+
+  <div style="position:relative; display:flex; flex-direction:column; align-items:center;">
+    <div style="width:104px; height:104px; border-radius:9999px; background:#ffffff; display:flex; align-items:center; justify-content:center; font-size:56px; line-height:1; box-shadow:0 6px 20px rgba(0,0,0,0.15); animation:j13pop 0.5s ease-out both;">🏆</div>
+    <div style="font-family:'Copernicus',Georgia,serif; font-weight:700; font-size:40px; line-height:1; color:#ffffff; margin-top:18px; letter-spacing:-0.01em;">{{ doneHeadline }}</div>
+    <div style="font:500 16px/22px 'Inter'; color:#ffffff; opacity:0.9; margin-top:8px; max-width:280px;">Du fullførte «{{ doneTitle }}»</div>
+
+    <div style="display:flex; gap:12px; margin-top:26px;">
+      <div style="background:#ffffff; border-radius:16px; padding:14px 20px; min-width:104px;">
+        <div style="display:flex; align-items:center; justify-content:center; gap:5px;"><span style="font-size:20px; line-height:1;">🔥</span><span style="font-family:'Roboto Mono',monospace; font-weight:700; font-size:26px; color:#23347a;">{{ doneStreak }}</span></div>
+        <div style="font:600 11px 'Inter'; color:#6b6761; margin-top:4px;">økter på rad</div>
+      </div>
+      <div style="background:#ffffff; border-radius:16px; padding:14px 20px; min-width:104px; display:flex; flex-direction:column; align-items:center; justify-content:center;">
+        <span style="font-size:24px; line-height:1;">✅</span>
+        <div style="font:600 11px 'Inter'; color:#6b6761; margin-top:5px;">{{ doneKind }}</div>
+      </div>
+    </div>
+
+    <sc-if value="{{ doneRecord }}" hint-placeholder-val="{{ false }}">
+      <div style="display:inline-flex; align-items:center; gap:7px; margin-top:16px; background:#23347a; color:#ffffff; border-radius:9999px; padding:9px 16px; font:700 14px 'Inter'; animation:j13pulse 1.6s ease-in-out infinite;">📈 {{ doneRecordText }}</div>
+    </sc-if>
+
+    <sc-if value="{{ hasNewBadge }}" hint-placeholder-val="{{ false }}">
+      <div style="display:inline-flex; align-items:center; gap:8px; margin-top:14px; background:rgba(255,255,255,0.16); color:#ffffff; border:1px dashed rgba(255,255,255,0.55); border-radius:9999px; padding:9px 16px; font:600 14px 'Inter';">🏅 Nytt merke: {{ doneNewBadge }}</div>
+    </sc-if>
+
+    <button onClick="{{ backHome }}" style="border:none; cursor:pointer; background:#23347a; color:#ffffff; font:700 16px 'Inter'; padding:15px 30px; border-radius:14px; margin-top:30px;">Tilbake til uka</button>
+  </div>
+
+</div>
+</sc-if>
+
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:430,&quot;height&quot;:880},&quot;week&quot;:{&quot;editor&quot;:&quot;int&quot;,&quot;default&quot;:3,&quot;min&quot;:1,&quot;max&quot;:12,&quot;tsType&quot;:&quot;number&quot;},&quot;demoData&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;}}">
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    // YouTube-s\u00f8k \u2014 \u00e5pent uten innlogging, \u00e5pner i YouTube-appen/nettleser
+    var ig = function (q) { return 'https://www.youtube.com/results?search_query=' + encodeURIComponent(q); };
+    var strengthItems = [
+      { label: '10 kneb\u00f8y', img: 'assets/ovelser/kneboy.jpg' },
+      { label: '8 utfall per bein', img: 'assets/ovelser/utfall.jpg' },
+      { label: '10 push-ups (p\u00e5 kn\u00e6r ved behov)', img: 'assets/ovelser/pushups.jpg' },
+      { label: '10 sit-ups', img: 'assets/ovelser/situps.jpg' },
+      { label: '15 rygghev', img: 'assets/ovelser/rygghev.jpg' }
+    ];
+    var FOTBALL_TINT = '#e7ebf6', FOTBALL_EMOJI = '\u26bd';
+    this.SESSIONS = {
+      jogg: {
+        kind: 'Kondisjon', title: 'Rolig langtur', dur: '20\u201330 min', icon: '\ud83c\udfc3\u200d\u2640\ufe0f', iconColor: '#1f9d57', tint: '#e3f4ea',
+        steps: [
+          { type: 'timer', name: 'Oppvarming', detail: 'Rolig g\u00e5 og jogg', seconds: 300, bullets: ['Start helt rolig', 'F\u00e5 opp pulsen gradvis'] },
+          { type: 'timer', name: 'Rolig jogging', detail: 'Et tempo du klarer \u00e5 prate i', seconds: 1080, bullets: ['Jevnt og rolig', 'Pust med magen'] },
+          { type: 'do', name: 'Raske l\u00f8p', detail: '4 \u00d7 20 sekunder', bullets: ['20 sek rask fart', 'G\u00e5 rolig tilbake', 'Gjenta 4 ganger'] },
+          { type: 'timer', name: 'Nedjogg', detail: 'Rolig jogg eller gange', seconds: 300, bullets: ['Senk tempoet', 'Pust deg ned'] }
+        ]
+      },
+      styrke: {
+        kind: 'Styrke', title: 'Styrkesirkel', dur: '20\u201325 min', icon: '\ud83d\udcaa', iconColor: '#c71f40', tint: '#fbe3e8',
+        steps: [
+          { type: 'timer', name: 'Lett oppvarming', detail: 'Gj\u00f8r deg klar', seconds: 120, bullets: ['Litt bevegelighet', 'Noen lette spensthopp'] },
+          { type: 'checklist', name: 'Runde 1 av 3', items: strengthItems.slice() },
+          { type: 'timer', name: 'Pause', detail: 'Hvil f\u00f8r neste runde', seconds: 60, bullets: ['Rist l\u00f8s', 'Drikk litt vann'] },
+          { type: 'checklist', name: 'Runde 2 av 3', items: strengthItems.slice() },
+          { type: 'timer', name: 'Pause', detail: 'Hvil f\u00f8r siste runde', seconds: 60, bullets: ['Pust rolig'] },
+          { type: 'checklist', name: 'Runde 3 av 3', items: strengthItems.slice() },
+          { type: 'do', name: 'Utt\u00f8ying', detail: 'Rolig t\u00f8y ut til slutt', bullets: ['L\u00e5r og legger', 'Rygg og hofter', 'Hold hver t\u00f8y 15\u201320 sek'] }
+        ]
+      },
+      A: {
+        kind: 'Ballkontroll', title: 'Ballkontroll og f\u00f8ring', dur: '25\u201330 min', icon: FOTBALL_EMOJI, iconColor: '#23347a', tint: FOTBALL_TINT,
+        steps: [
+          { type: 'timer', name: 'Triksing og fri lek', detail: 'Bli venn med ballen', seconds: 300, bullets: ['Hold ballen i lufta', 'Pr\u00f8v begge f\u00f8tter'] },
+          { type: 'timer', name: 'F\u00f8ring med begge bein', detail: 'Rolig og kontrollert', seconds: 600, bullets: ['Innside', 'Utside', 'S\u00e5le'], videos: [{ label: 'F\u00f8ring: innside, utside, s\u00e5le', embed: 'J6U-YClb6AM' }] },
+          { type: 'timer', name: 'Finter', detail: '\u00d8v p\u00e5 tre faste finter', seconds: 600, bullets: ['Stepover', 'Cruyff-vending', 'Vending med innsiden'], videos: [{ label: 'Stepover', embed: 'dQfDy9Mqmhc' }, { label: 'Cruyff-vending', embed: 'EEwIxwUZjdo' }, { label: 'Vending med innsiden', embed: 'vX84ATVR0F8' }] },
+          { type: 'challenge', name: 'Ber\u00f8ringer p\u00e5 1 minutt', detail: 'Start timeren og ta korte touch p\u00e5 ballen med innsiden av foten \u2014 vekselvis h\u00f8yre og venstre. Tell hver ber\u00f8ring i ett minutt.', seconds: 60, pbKey: 'touches', unit: 'ber\u00f8ringer', prompt: 'Hvor mange klarte du?', bullets: ['Korte touch innside-innside', 'Veksle h\u00f8yre og venstre fot', 'Tell hver gang du r\u00f8rer ballen'] }
+        ]
+      },
+      B: {
+        kind: 'Pasning', title: 'Pasning og mottak', dur: '25\u201330 min', icon: FOTBALL_EMOJI, iconColor: '#23347a', tint: FOTBALL_TINT,
+        steps: [
+          { type: 'timer', name: 'Oppvarming med ball', detail: 'Korte, lette pasninger', seconds: 180, bullets: ['Lette touch', 'Begge f\u00f8tter'] },
+          { type: 'do', name: '50 pasninger \u2013 h\u00f8yre fot', detail: 'Mot vegg eller med partner', bullets: ['Treff samme punkt', 'Rolig og presist'] },
+          { type: 'do', name: '50 pasninger \u2013 venstre fot', detail: 'Mot vegg eller med partner', bullets: ['Ta deg god tid', 'Sikt f\u00f8r du sl\u00e5r'] },
+          { type: 'timer', name: 'Mottak og pasning p\u00e5 ett touch', detail: 'Alene mot en vegg: spill ballen i veggen og send den rett tilbake i samme ber\u00f8ring. Hold en jevn rytme.', seconds: 300, bullets: ['Ett touch', 'Jevn rytme', 'Mot vegg eller partner'] },
+          { type: 'do', name: '20 pasninger uten feil', detail: 'Avslutning', bullets: ['Konsentrer deg', 'Tell h\u00f8yt'] },
+          { type: 'do', name: '20 pasninger med svak fot', detail: 'Avslutning', bullets: ['T\u00f8ff utfordring', 'Ro i bevegelsen'] }
+        ]
+      },
+      C: {
+        kind: 'Avslutninger', title: 'Avslutninger og hurtighet', dur: '25\u201330 min', icon: FOTBALL_EMOJI, iconColor: '#23347a', tint: FOTBALL_TINT,
+        steps: [
+          { type: 'timer', name: 'Oppvarming med ball', detail: 'F\u00e5 opp tempoet', seconds: 300, bullets: ['Lett f\u00f8ring', 'Noen lette pasninger'] },
+          { type: 'do', name: 'Sprintl\u00f8p', detail: '10 sprinter p\u00e5 10\u201320 meter', bullets: ['Full fart', 'G\u00e5 rolig tilbake mellom hver'] },
+          { type: 'timer', name: 'Skuddtrening', detail: 'Sikt og treff', seconds: 600, bullets: ['H\u00f8yre fot', 'Venstre fot', 'Etter f\u00f8ring'] },
+          { type: 'challenge', name: 'Treff m\u00e5l eller kjegle', detail: 'Av 10 fors\u00f8k', seconds: 0, pbKey: 'targets', unit: 'treff av 10', prompt: 'Hvor mange treff?' }
+        ]
+      }
+    };
+    this.CHEERS = ['Bra jobba!', 'Du fikser dette!', 'Sterkt!', 'Fortsett s\u00e5nn!', 'Heia deg!', 'Du blir bedre for hver gang!', 'N\u00e6sten der!', 'Skikkelig innsats!'];
+    this.badgeDefs = [
+      { id: 'start', name: 'Kom i gang', icon: '\ud83c\udf1f', test: function (p) { return (p.totalDone || 0) >= 1; } },
+      { id: 'core', name: 'Sterk kjerne', icon: '\ud83d\udcaa', test: (p) => this.anyType(p, ['styrke']) },
+      { id: 'ball', name: 'Ballf\u00f8lelse', icon: '\u26bd', test: (p) => this.anyType(p, ['A', 'B', 'C']) },
+      { id: 'streak3', name: '3 p\u00e5 rad', icon: '\ud83d\udd25', test: function (p) { return (p.streak || 0) >= 3; } },
+      { id: 'week', name: 'Hel uke', icon: '\u2705', test: (p) => this.anyFullWeek(p) },
+      { id: 'sharp', name: 'Skarpskytter', icon: '\ud83c\udfaf', test: function (p) { return ((p.pb && p.pb.targets) || 0) >= 8; } }
+    ];
+    this.state = {
+      view: 'home',
+      nameInput: '',
+      videoModal: null,
+      imageModal: null,
+      week: (props && props.week) ? props.week : 3,
+      activeSession: null,
+      stepIndex: 0,
+      timerLeft: 0,
+      timerRunning: false,
+      checks: [],
+      challengeVal: 0,
+      progress: null,
+      lastDone: null
+    };
+    this._record = false;
+  }
+
+  componentDidMount() {
+    var p = null;
+    try { p = JSON.parse(localStorage.getItem('j2013_progress') || 'null'); } catch (e) {}
+    if (!p) {
+      var demo = !(this.props && this.props.demoData === false);
+      if (demo) {
+        p = { completed: { '1-okt1': true, '1-okt2': true, '2-okt1': true, '3-okt1': true }, pb: { touches: 38, targets: 7 }, streak: 4, totalDone: 4 };
+      } else {
+        p = { completed: {}, pb: {}, streak: 0, totalDone: 0 };
+      }
+    }
+    this.setState({ progress: p, view: p.name ? this.state.view : 'name' });
+    this._tick = setInterval(() => {
+      if (this.state.timerRunning && this.state.timerLeft > 0) {
+        this.setState(function (s) {
+          var nl = s.timerLeft - 1;
+          return { timerLeft: nl, timerRunning: nl > 0 };
+        });
+      }
+    }, 1000);
+  }
+
+  componentDidUpdate(prevProps) {
+    if (prevProps && prevProps.week !== this.props.week && this.props.week) {
+      this.setState({ week: this.props.week });
+    }
+  }
+
+  componentWillUnmount() { clearInterval(this._tick); }
+
+  save(p) { try { localStorage.setItem('j2013_progress', JSON.stringify(p)); } catch (e) {} }
+
+  resolveSession(week, key) {
+    if (key === 'okt1') { return week % 2 === 1 ? this.SESSIONS.jogg : this.SESSIONS.styrke; }
+    return this.SESSIONS[['A', 'B', 'C'][(week - 1) % 3]];
+  }
+
+  resolveType(week, s) {
+    if (s === 'okt1') { return week % 2 === 1 ? 'jogg' : 'styrke'; }
+    return ['A', 'B', 'C'][(week - 1) % 3];
+  }
+
+  anyType(p, types) {
+    var keys = Object.keys(p.completed || {});
+    for (var i = 0; i < keys.length; i++) {
+      var k = keys[i]; if (!p.completed[k]) continue;
+      var parts = k.split('-'); var t = this.resolveType(parseInt(parts[0], 10), parts[1]);
+      if (types.indexOf(t) !== -1) return true;
+    }
+    return false;
+  }
+
+  anyFullWeek(p) {
+    var c = p.completed || {};
+    var weeks = {};
+    Object.keys(c).forEach(function (k) { if (c[k]) weeks[k.split('-')[0]] = true; });
+    var ws = Object.keys(weeks);
+    for (var i = 0; i < ws.length; i++) {
+      if (c[ws[i] + '-okt1'] && c[ws[i] + '-okt2']) return true;
+    }
+    return false;
+  }
+
+  earnedSet(p) {
+    var s = {};
+    this.badgeDefs.forEach((d) => { if (d.test(p)) s[d.id] = true; });
+    return s;
+  }
+
+  badgeMeta(id) { return this.badgeDefs.find(function (d) { return d.id === id; }); }
+
+  fmt(sec) {
+    if (sec < 0) sec = 0;
+    var m = Math.floor(sec / 60), s = sec % 60;
+    return m + ':' + (s < 10 ? '0' + s : s);
+  }
+
+  openSession(id) {
+    var sess = this.resolveSession(this.state.week, id);
+    var step = sess.steps[0];
+    this.setState({
+      activeSession: id, view: 'session', stepIndex: 0, timerRunning: false,
+      timerLeft: step.seconds || 0,
+      checks: step.type === 'checklist' ? step.items.map(function () { return false; }) : [],
+      challengeVal: 0
+    });
+  }
+
+  goStep(i) {
+    var sess = this.resolveSession(this.state.week, this.state.activeSession);
+    var step = sess.steps[i];
+    this.setState({
+      stepIndex: i, timerRunning: false,
+      timerLeft: step.seconds || 0,
+      checks: step.type === 'checklist' ? step.items.map(function () { return false; }) : [],
+      challengeVal: 0
+    });
+  }
+
+  goBack() {
+    if (this.state.stepIndex > 0) this.goStep(this.state.stepIndex - 1);
+    else this.closePlayer();
+  }
+
+  closePlayer() { this.setState({ view: 'home', timerRunning: false }); }
+
+  setName() {
+    var nm = (this.state.nameInput || '').trim();
+    var p = Object.assign({}, this.state.progress || { completed: {}, pb: {} });
+    p.name = nm;
+    this.save(p);
+    this.setState({ progress: p, view: 'home' });
+  }
+
+  editName() {
+    this.setState({ view: 'name', nameInput: (this.state.progress && this.state.progress.name) || '' });
+  }
+
+  onNameInput(e) { this.setState({ nameInput: e.target.value }); }
+
+  changeWeek(d) {
+    var w = Math.min(12, Math.max(1, this.state.week + d));
+    this.setState({ week: w });
+  }
+
+  toggleCheck(i) {
+    var c = (this.state.checks || []).slice();
+    c[i] = !c[i];
+    this.setState({ checks: c });
+  }
+
+  incCh(d) {
+    this.setState(function (s) { return { challengeVal: Math.max(0, (s.challengeVal || 0) + d) }; });
+  }
+
+  startOrPause() {
+    var sess = this.resolveSession(this.state.week, this.state.activeSession);
+    var step = sess.steps[this.state.stepIndex];
+    var total = step.seconds || 0;
+    if (this.state.timerLeft <= 0 && total > 0) {
+      this.setState({ timerLeft: total, timerRunning: true });
+    } else {
+      this.setState(function (s) { return { timerRunning: !s.timerRunning }; });
+    }
+  }
+
+  resetTimer() {
+    var sess = this.resolveSession(this.state.week, this.state.activeSession);
+    var step = sess.steps[this.state.stepIndex];
+    this.setState({ timerLeft: step.seconds || 0, timerRunning: false });
+  }
+
+  next() {
+    var sess = this.resolveSession(this.state.week, this.state.activeSession);
+    var idx = this.state.stepIndex;
+    var step = sess.steps[idx];
+    var p = Object.assign({}, this.state.progress);
+    p.completed = Object.assign({}, p.completed);
+    p.pb = Object.assign({}, p.pb || {});
+    var record = false, recordText = '';
+    if (step && step.type === 'challenge' && step.pbKey) {
+      var prev = p.pb[step.pbKey] || 0;
+      if (this.state.challengeVal > prev) {
+        p.pb[step.pbKey] = this.state.challengeVal;
+        record = true;
+        recordText = 'Ny rekord: ' + this.state.challengeVal + ' ' + (step.unit || '') + '!';
+      }
+    }
+    if (idx >= sess.steps.length - 1) {
+      this.complete(p, sess, record, recordText);
+    } else {
+      this.setState({ progress: p }); this.save(p);
+      this.goStep(idx + 1);
+    }
+  }
+
+  complete(p, sess, record, recordText) {
+    var before = this.earnedSet(this.state.progress || { completed: {}, pb: {} });
+    var key = this.state.week + '-' + this.state.activeSession;
+    if (!p.completed[key]) {
+      p.completed[key] = true;
+      p.totalDone = (p.totalDone || 0) + 1;
+      p.streak = (p.streak || 0) + 1;
+    }
+    var after = this.earnedSet(p);
+    var newBadge = null;
+    var afterKeys = Object.keys(after);
+    for (var i = 0; i < afterKeys.length; i++) {
+      if (!before[afterKeys[i]]) { newBadge = afterKeys[i]; break; }
+    }
+    var praises = ['Bra jobba', 'Sterkt', 'Heia', 'St\u00e5 p\u00e5', 'Supert'];
+    var hl = praises[Math.floor(Math.random() * praises.length)] + (p.name ? ', ' + p.name : '') + '!';
+    this.save(p);
+    this.setState({
+      progress: p, view: 'done', timerRunning: false,
+      lastDone: {
+        headline: hl,
+        title: sess.title, kind: sess.kind, streak: p.streak,
+        newBadge: newBadge ? this.badgeMeta(newBadge).name : null,
+        record: record, recordText: recordText
+      }
+    });
+  }
+
+  renderVals() {
+    var p = this.state.progress || { completed: {}, pb: {}, streak: 0, totalDone: 0 };
+    var week = this.state.week;
+    var view = this.state.view;
+    var self = this;
+    var nm = p.name || '';
+
+    var mk = function (key) {
+      var sess = self.resolveSession(week, key);
+      var done = !!p.completed[week + '-' + key];
+      var meta = key === 'okt1' ? '\u00d8kt 1' : '\u00d8kt 2';
+      return {
+        id: key, label: meta + ' \u00b7 ' + sess.kind, kind: sess.kind, title: sess.title, dur: sess.dur,
+        icon: sess.icon, iconColor: sess.iconColor, tint: sess.tint,
+        stepsLabel: sess.steps.length + ' \u00f8velser', done: done, notDone: !done,
+        open: function () { self.openSession(key); }
+      };
+    };
+    var sessions = [mk('okt1'), mk('okt2')];
+    var doneCount = sessions.filter(function (s) { return s.done; }).length;
+
+    var earned = this.earnedSet(p);
+    var badges = this.badgeDefs.map(function (d) {
+      var e = !!earned[d.id];
+      return {
+        name: d.name, icon: e ? d.icon : '\ud83d\udd12', earned: e,
+        bg: e ? '#e3f4ea' : '#f3eee6',
+        border: e ? '#bfe8cf' : '#e6e0d7',
+        labelColor: e ? '#23347a' : '#a29c95',
+        filter: e ? 'none' : 'grayscale(1) opacity(0.7)'
+      };
+    });
+
+    var firstName = nm ? (', ' + nm) : '';
+    var summerTitle, summerBody;
+    if (doneCount >= 2) {
+      summerTitle = 'Uke ' + week + ' i boks! \ud83c\udf89';
+      summerBody = 'R\u00e5sterkt' + firstName + ' \u2014 begge \u00f8ktene er gjort. Nyt sommeren, vi ses neste uke!';
+    } else if (doneCount === 1) {
+      summerTitle = 'Bra start p\u00e5 uke ' + week + '!';
+      summerBody = '\u00c9n \u00f8kt igjen f\u00f8r uka er i boks. Du holder ferieforma oppe' + firstName + ' \ud83d\udcaa';
+    } else if (week >= 4) {
+      summerTitle = 'Hold det g\u00e5ende i ferien \u2600\ufe0f';
+      summerBody = 'Hver \u00f8kt n\u00e5 teller mot toppform til sesongstart. Velg en \u00f8kt og kj\u00f8r i gang' + firstName + '!';
+    } else {
+      summerTitle = 'God sommer' + firstName + '! \u2600\ufe0f';
+      summerBody = 'Ta med ballen i ferien \u2014 1\u20132 \u00f8kter i uka holder deg skarp til sesongstart. Velg uke n\u00e5r du er klar.';
+    }
+
+    var sess = this.state.activeSession ? this.resolveSession(week, this.state.activeSession) : null;
+    var step = sess ? sess.steps[this.state.stepIndex] : null;
+    var total = (step && step.seconds) ? step.seconds : 0;
+    var left = this.state.timerLeft;
+    var timerDone = total > 0 && left <= 0;
+    var CIRC = 326.73;
+    var frac = total > 0 ? (left / total) : 0;
+    var timerOffset = (CIRC * (1 - frac)).toFixed(1);
+    var bullets = (step && step.bullets) ? step.bullets : [];
+    var stepVideos = (step && step.videos ? step.videos : []).map(function (v) {
+      return {
+        label: v.label,
+        url: v.url || '',
+        isEmbed: !!v.embed,
+        isLink: !v.embed,
+        open: function () { self.setState({ videoModal: v.embed }); }
+      };
+    });
+    var vm = this.state.videoModal;
+    var checks = this.state.checks || [];
+    var items = (step && step.type === 'checklist' ? step.items : []).map(function (item, i) {
+      var c = !!checks[i];
+      return {
+        label: item.label,
+        videoUrl: item.url || '', hasVideo: !!item.url,
+        hasImg: !!item.img,
+        thumbEl: item.img ? React.createElement('img', { src: item.img, alt: item.label, style: { width: '100%', height: '100%', objectFit: 'cover', display: 'block' } }) : null,
+        openImg: function () { self.setState({ imageModal: item.img }); },
+        checked: c,
+        icon: c ? 'check_circle' : 'radio_button_unchecked',
+        bg: c ? 'rgba(67,200,120,0.18)' : 'rgba(255,255,255,0.05)',
+        border: c ? 'rgba(67,200,120,0.55)' : 'rgba(255,255,255,0.13)',
+        check: c ? '#43c878' : 'rgba(255,255,255,0.4)',
+        text: c ? '#ffffff' : 'rgba(255,255,255,0.85)',
+        onToggle: function () { self.toggleCheck(i); }
+      };
+    });
+    var isLast = sess ? this.state.stepIndex >= sess.steps.length - 1 : false;
+    var isChallenge = !!(step && step.type === 'challenge');
+    var stepTotal = sess ? sess.steps.length : 0;
+    var progressPct = sess ? Math.round((this.state.stepIndex / sess.steps.length) * 100) + '%' : '0%';
+    var ld = this.state.lastDone || {};
+
+    return {
+      isHome: view === 'home', isSession: view === 'session', isDone: view === 'done',
+      weekLabel: 'Uke ' + week,
+      greeting: doneCount === 0 ? ('Hei' + (nm ? ', ' + nm : '') + '! Klar for f\u00f8rste \u00f8kt?') : (doneCount === 1 ? (nm ? ('Bra start, ' + nm + ' \u2014 \u00e9n igjen!') : '\u00c9n \u00f8kt igjen denne uka') : (nm ? ('R\u00e5sterkt, ' + nm + '!') : 'Begge \u00f8kter er gjort!')),
+      streak: String(p.streak || 0),
+      weekDoneLabel: doneCount + ' / 2',
+      summerTitle: summerTitle, summerBody: summerBody,
+      sessions: sessions, badges: badges,
+      pbTouches: (p.pb && p.pb.touches) ? String(p.pb.touches) : '\u2013',
+      pbTargets: (p.pb && p.pb.targets) ? String(p.pb.targets) : '\u2013',
+      prevWeek: function () { self.changeWeek(-1); },
+      nextWeek: function () { self.changeWeek(1); },
+
+      sKind: sess ? sess.kind : '', sTitle: sess ? sess.title : '',
+      sIcon: sess ? sess.icon : '\u26bd', sIconColor: sess ? sess.iconColor : '#43c878',
+      stepNum: String(this.state.stepIndex + 1), stepTotal: String(stepTotal), progressPct: progressPct,
+      stepName: step ? step.name : '', stepDetail: step ? (step.detail || '') : '',
+      stepBullets: bullets, hasBullets: bullets.length > 0,
+      stepVideos: stepVideos, hasVideos: stepVideos.length > 0,
+      showVideoModal: !!vm,
+      videoEmbedUrl: vm ? ('https://www.youtube.com/embed/' + vm + '?autoplay=1&playsinline=1&rel=0') : '',
+      closeVideo: function () { self.setState({ videoModal: null }); },
+      showImageModal: !!this.state.imageModal,
+      imageModalEl: this.state.imageModal ? React.createElement('img', { src: this.state.imageModal, alt: 'Øvelse', style: { maxWidth: '100%', maxHeight: '80vh', borderRadius: '18px', objectFit: 'contain', boxShadow: '0 12px 48px rgba(0,0,0,0.5)' } }) : null,
+      closeImage: function () { self.setState({ imageModal: null }); },
+      showTimer: !!(step && (step.type === 'timer' || (step.type === 'challenge' && step.seconds > 0))),
+      isChecklist: !!(step && step.type === 'checklist'),
+      isChallenge: isChallenge,
+      isPlainDo: !!(step && step.type === 'do'),
+      items: items,
+      timerDisplay: this.fmt(left), timerOffset: timerOffset,
+      timerStateLabel: timerDone ? 'Ferdig!' : (this.state.timerRunning ? 'Holder p\u00e5 \u2026' : 'Trykk start'),
+      timerBtnLabel: this.state.timerRunning ? 'Pause' : (timerDone ? 'Start p\u00e5 nytt' : 'Start'),
+      startOrPause: function () { self.startOrPause(); },
+      resetTimer: function () { self.resetTimer(); },
+      chValue: String(this.state.challengeVal || 0),
+      chUnit: (step && step.unit) ? step.unit : '',
+      chPrompt: (step && step.prompt) ? step.prompt : '',
+      chPrevBest: (isChallenge && step.pbKey && p.pb && p.pb[step.pbKey]) ? String(p.pb[step.pbKey]) : '\u2013',
+      incCh: function () { self.incCh(1); },
+      decCh: function () { self.incCh(-1); },
+      cheer: this.CHEERS[this.state.stepIndex % this.CHEERS.length],
+      nextLabel: isLast ? (isChallenge ? 'Lagre og fullf\u00f8r' : 'Fullf\u00f8r \u00f8kt') : 'Neste \u00f8velse',
+      next: function () { self.next(); },
+      skip: function () { self.next(); },
+      goBack: function () { self.goBack(); },
+      closePlayer: function () { self.closePlayer(); },
+
+      doneTitle: ld.title || '', doneStreak: String(ld.streak || 0), doneKind: ld.kind || '',
+      hasNewBadge: !!ld.newBadge, doneNewBadge: ld.newBadge || '',
+      doneRecord: !!ld.record, doneRecordText: ld.recordText || '',
+      doneHeadline: ld.headline || (ld.title ? 'Bra jobba!' : ''),
+      isName: view === 'name',
+      nameInput: this.state.nameInput || '',
+      onNameInput: function (e) { self.onNameInput(e); },
+      onNameKey: function (e) { if (e.key === 'Enter') self.setName(); },
+      setName: function () { self.setName(); },
+      editName: function () { self.editName(); },
+      backHome: function () { self.setState({ view: 'home' }); }
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,19 @@
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; background: #e7e3da; font-family: 'Inter', -apple-system, sans-serif; }
+::-webkit-scrollbar { width: 0; height: 0; }
+
+@keyframes j13fall {
+  0%   { transform: translateY(-30px) rotate(0deg); opacity: 1; }
+  100% { transform: translateY(640px) rotate(560deg); opacity: 0; }
+}
+
+@keyframes j13pop {
+  0%   { transform: scale(0.6); opacity: 0; }
+  60%  { transform: scale(1.08); }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes j13pulse {
+  0%, 100% { transform: scale(1); }
+  50%       { transform: scale(1.04); }
+}
