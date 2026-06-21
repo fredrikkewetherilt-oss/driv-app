@@ -376,7 +376,7 @@ export default function App() {
             {/* streak hero */}
             <div style={{ margin: '-26px 20px 0', background: 'var(--celebrate)', borderRadius: 20, padding: '17px 20px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', color: '#fff', boxShadow: '0 8px 22px rgba(31,157,87,0.30)' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: 14 }}>
-                <div style={{ width: 50, height: 50, borderRadius: 9999, background: 'rgba(255,164,36,0.18)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 27 }}>🔥</div>
+                <div style={{ width: 50, height: 50, borderRadius: 9999, background: 'rgba(255,255,255,0.20)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 27 }}>🔥</div>
                 <div>
                   <div style={{ display: 'flex', alignItems: 'baseline', gap: 6 }}>
                     <span style={{ fontFamily: "'Roboto Mono',monospace", fontWeight: 700, fontSize: 30 }}>{progress.streak || 0}</span>
@@ -386,7 +386,7 @@ export default function App() {
                 </div>
               </div>
               <div style={{ textAlign: 'center', paddingLeft: 14, borderLeft: '1px solid rgba(255,255,255,0.25)' }}>
-                <div style={{ fontFamily: "'Roboto Mono',monospace", fontWeight: 700, fontSize: 20, color: 'var(--accent)' }}>{doneCount} / 2</div>
+                <div style={{ fontFamily: "'Roboto Mono',monospace", fontWeight: 700, fontSize: 20, color: '#fff' }}>{doneCount} / 2</div>
                 <div style={{ font: '600 11px Inter,sans-serif', color: 'rgba(255,255,255,0.8)' }}>denne uka</div>
               </div>
             </div>
